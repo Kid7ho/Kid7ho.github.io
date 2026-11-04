@@ -1,0 +1,47 @@
+import { research, type Lang } from '@/content/site';
+import { Footer } from './Footer';
+
+export function Research({ lang }: { lang: Lang }) {
+  return (
+    <>
+      <main id="main" className="page">
+        <div className="wrap">
+          <h1>{research.title[lang]}</h1>
+          <p className="page__lead">{research.lead[lang]}</p>
+
+          <section className="current">
+            <h2>{research.current.heading[lang]}</h2>
+            <p className="meta">{research.current.meta[lang]}</p>
+            <p>{research.current.body[lang]}</p>
+            <ul className="plain-list">
+              {research.current.points.map((point) => <li key={point.en}>{point[lang]}</li>)}
+            </ul>
+          </section>
+
+          <section>
+            <h2>{research.publicationsHeading[lang]}</h2>
+            <ol className="publications">
+              {research.publications.map((paper) => (
+                <li key={paper.title.en}>
+                  <h3>{paper.title[lang]}</h3>
+                  <p>{paper.authors[lang]}</p>
+                  <p className="publications__venue">{paper.venue[lang]}</p>
+                  <p className="meta">{research.roleLabel[lang]}: {paper.role[lang]}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="meta">{research.note[lang]}</p>
+          </section>
+
+          <section>
+            <h2>{research.interests.heading[lang]}</h2>
+            <ul className="interest-list">
+              {research.interests.items.map((item) => <li key={item.en}>{item[lang]}</li>)}
+            </ul>
+          </section>
+        </div>
+      </main>
+      <Footer lang={lang} from="var(--foam)" />
+    </>
+  );
+}
