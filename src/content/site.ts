@@ -209,7 +209,7 @@ export const research = {
         { label: { en: 'Code and draft', ko: '코드와 초고' }, href: 'https://github.com/choiyh592/How_You_Mark_It_Matters' },
         { label: { en: 'Conference program', ko: '학술대회 프로그램' }, href: 'https://sites.google.com/view/hclt2026/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8' },
       ] as LinkItem[],
-      role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
+      role: { en: 'Co-built experimental data and reviewed the manuscript', ko: '실험 데이터 공동 구축, 논문 검수' } as Text,
     },
     {
       date: { en: 'Sep 2026', ko: '2026.09' } as Text,
@@ -222,7 +222,7 @@ export const research = {
         ko: '한국어 상용 생성형 검색 API의 자기주장 권위 단서와 응용 계층 사실검증',
       } as Text,
       venue: { en: 'Korea AI 2026', ko: '제7회 한국 인공지능 학술대회' } as Text,
-      role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
+      role: { en: 'Co-built experimental data and reviewed the manuscript', ko: '실험 데이터 공동 구축, 논문 검수' } as Text,
     },
   ] as Publication[],
   note: { en: '† Equal first authors', ko: '† 공동 제1저자' } as Text,
