@@ -21,7 +21,7 @@ export function Research({ lang }: { lang: Lang }) {
                   <p className="publications__date">{paper.date[lang]}</p>
                   <div>
                     <h3>
-                      {paper.links?.length ? <a href={paper.links[0].href}>{paper.title[lang]}</a> : paper.title[lang]}
+                      {paper.url ? <a href={paper.url}>{paper.title[lang]}</a> : paper.title[lang]}
                     </h3>
                     <p>{paper.authors[lang]}</p>
                     <p className="publications__venue">{paper.venue[lang]}</p>

@@ -148,6 +148,7 @@ export type Publication = {
   title: Text;
   venue: Text;
   role: Text;
+  url?: string;
   links?: LinkItem[];
 };
 
@@ -172,7 +173,8 @@ export const research = {
   },
   publicationsHeading: { en: 'Publications', ko: '논문' } as Text,
   roleLabel: { en: 'My role', ko: '본인 역할' } as Text,
-  // Newest first. Add `links` to a paper once it has a public page.
+  // Newest first. Set `url` once a paper has a published page: the title then links to it.
+  // `links` are extra links shown under the paper, such as code.
   publications: [
     {
       date: { en: 'In preparation', ko: '준비 중' } as Text,
@@ -204,7 +206,6 @@ export const research = {
         ko: '한국어 검색 에이전트 환경에서 조사 단위 프레이밍이 미치는 영향 분석',
       } as Text,
       venue: { en: 'HCLT 2026, Oral', ko: 'HCLT 2026, Oral' } as Text,
-      // The title links to the first entry. Put the published paper page first once it exists.
       links: [
         { label: { en: 'Code and draft', ko: '코드와 초고' }, href: 'https://github.com/choiyh592/How_You_Mark_It_Matters' },
         { label: { en: 'Conference program', ko: '학술대회 프로그램' }, href: 'https://sites.google.com/view/hclt2026/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8' },
