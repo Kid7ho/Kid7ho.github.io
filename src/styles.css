@@ -85,7 +85,7 @@ img, svg, iframe { display: block; max-width: 100%; }
 .text-link { font-weight: 600; color: var(--ocean); text-underline-offset: 0.25em; }
 .meta { color: var(--deep); font-size: 0.95rem; }
 
-.wave { line-height: 0; }
+.wave { line-height: 0; margin-bottom: -1px; position: relative; }
 .wave svg { width: 100%; height: clamp(2.25rem, 5vw, 4.5rem); }
 
 /* Home */
