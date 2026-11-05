@@ -98,7 +98,7 @@ export const experience: Experience[] = [
     },
   },
   {
-    logo: '/logos/roka.png',
+    logo: '/logos/army.png',
     period: { en: 'Mar 2024 – Sep 2025', ko: '2024.03 – 2025.09' },
     role: { en: 'Military service', ko: '군 복무' },
     org: { en: 'Republic of Korea Army', ko: '대한민국 육군' },
