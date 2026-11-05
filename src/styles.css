@@ -130,36 +130,35 @@ img, svg, iframe { display: block; max-width: 100%; }
 .experience h2, .awards h2, .page section h2 {
   font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 780; line-height: 1.2; letter-spacing: -0.025em;
 }
-.experience h2 { color: var(--deep); margin-bottom: 2.25rem; }
+.experience h2 { color: var(--deep); margin-bottom: 1.15rem; }
 
-.sounding { position: relative; }
-.sounding::before, .sounding::after {
-  content: ''; position: absolute; top: 0.6rem; bottom: 0.6rem; left: 13rem; width: 2px;
-}
-.sounding::before { background: rgb(15 92 140 / 0.22); }
-.sounding::after { background: var(--ocean); transform-origin: top; }
+/* Each entry draws its own stretch of line, so the line runs from the first logo's centre to the last. */
 .sounding li {
-  position: relative; display: grid; grid-template-columns: 13rem minmax(0, 1fr); padding-bottom: 2.25rem;
+  position: relative; display: grid; grid-template-columns: 14.5rem 3rem minmax(0, 1fr);
+  align-items: center; padding-block: 1.1rem;
 }
-.sounding li:last-child { padding-bottom: 0; }
+.sounding li::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: calc(16rem - 1px); width: 2px;
+  background: rgb(15 92 140 / 0.35);
+}
+.sounding li:first-child::before { top: 50%; }
+.sounding li:last-child::before { bottom: 50%; }
+.sounding li > div { grid-column: 3; grid-row: 1; padding-left: 1.25rem; max-width: 40em; }
+.sounding__period { grid-column: 1; grid-row: 1; padding-right: 1.5rem; color: var(--deep); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
 .sounding__logo {
-  position: absolute; z-index: 1; left: calc(13rem + 1px - 1.5rem); top: -0.4rem;
-  display: grid; place-items: center; width: 3rem; height: 3rem; overflow: hidden;
-  border-radius: 0.6rem; background: #fff; color: var(--ocean);
+  grid-column: 2; grid-row: 1; position: relative; z-index: 1; display: grid; place-items: center;
+  width: 3rem; height: 3rem; overflow: hidden; border-radius: 0.6rem; background: #fff;
   box-shadow: 0 0 0 1px rgb(11 58 99 / 0.14);
 }
 .sounding__logo img { width: 100%; height: 100%; object-fit: contain; }
 .sounding__logo img[src$='.svg'], .sounding__logo img[src$='.png'] { padding: 0.25rem; }
-.sounding__logo svg { width: 1.5rem; height: 1.5rem; }
-.sounding li > div { padding-left: 2.75rem; max-width: 40em; }
-.sounding__period { padding-right: 1.5rem; color: var(--deep); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
 .sounding h3 { font-size: 1.2rem; font-weight: 720; line-height: 1.35; }
 .sounding__org { color: var(--ocean); font-weight: 600; }
 
 .awards { background: var(--ocean); color: var(--foam); padding-block: clamp(1.5rem, 4vw, 3rem) var(--section); }
 .awards h2 { margin-bottom: 2rem; }
-.awards li { display: grid; grid-template-columns: 13rem minmax(0, 1fr); padding-block: 1rem; }
-.awards li > div { padding-left: 2.75rem; }
+.awards li { display: grid; grid-template-columns: 14.5rem minmax(0, 1fr); padding-block: 1rem; }
+.awards li > div { padding-left: 4.25rem; }
 .awards__date { color: var(--sand); font-size: 0.95rem; font-weight: 600; }
 .awards h3 { font-size: 1.15rem; font-weight: 680; line-height: 1.4; }
 
@@ -234,13 +233,6 @@ img, svg, iframe { display: block; max-width: 100%; }
 .resume-preview { display: block; max-width: 46rem; margin-top: 2rem; border: 1px solid rgb(11 58 99 / 0.2); border-radius: 0.75rem; overflow: hidden; background: #fff; }
 .resume-preview img { width: 100%; height: auto; }
 
-/* The sounding line fills as the page descends. */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .sounding::after { animation: sound linear both; animation-timeline: view(); animation-range: entry 30% cover 75%; }
-    @keyframes sound { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
@@ -250,11 +242,11 @@ img, svg, iframe { display: block; max-width: 100%; }
   .site-nav { grid-column: 1 / -1; grid-row: 2; gap: 1.25rem; }
   .hero__grid { grid-template-columns: 1fr; }
   .hero .porthole { width: 9.5rem; border-width: 6px; }
-  .sounding::before, .sounding::after { left: calc(1.375rem - 1px); }
-  .sounding li { grid-template-columns: 1fr; padding-left: 3.5rem; }
-  .sounding__logo { left: 0; top: 0; width: 2.75rem; height: 2.75rem; }
-  .sounding li > div { padding-left: 0; }
-  .sounding__period { padding-right: 0; }
+  .sounding li { grid-template-columns: 2.75rem minmax(0, 1fr); column-gap: 0.85rem; }
+  .sounding li::before { left: calc(1.375rem - 1px); }
+  .sounding__logo { grid-column: 1; grid-row: 1 / span 2; width: 2.75rem; height: 2.75rem; }
+  .sounding__period { grid-column: 2; grid-row: 1; padding-right: 0; }
+  .sounding li > div { grid-column: 2; grid-row: 2; padding-left: 0; }
   .awards li, .project-list li, .publications li { grid-template-columns: 1fr; gap: 0.25rem; }
   .awards li > div { padding-left: 0; }
   .verdicts { grid-template-columns: repeat(2, minmax(0, 1fr)); }

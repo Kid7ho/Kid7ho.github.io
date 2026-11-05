@@ -52,8 +52,8 @@ export const ui = {
 } satisfies Record<string, unknown>;
 
 export type Experience = {
-  // Image in public/logos, shown beside the entry. Without one, a plain shield icon is shown.
-  logo?: string;
+  // Image in public/logos, shown beside the entry.
+  logo: string;
   period: Text;
   role: Text;
   org: Text;
@@ -61,6 +61,12 @@ export type Experience = {
 };
 
 export const experience: Experience[] = [
+  {
+    logo: '/logos/yai.png',
+    period: { en: 'Jan 2027 – Jun 2027 (incoming)', ko: '2027.01 – 2027.06 (예정)' },
+    role: { en: 'Vice President, 19th cohort', ko: '19기 운영부장 (부회장)' },
+    org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
+  },
   {
     logo: '/logos/yonsei.svg',
     period: { en: 'Jul 2026 – Present', ko: '2026.07 – 현재' },
@@ -83,14 +89,8 @@ export const experience: Experience[] = [
   },
   {
     logo: '/logos/yai.png',
-    period: { en: '19th cohort (incoming)', ko: '19기 (예정)' },
-    role: { en: 'Vice President', ko: '운영부장 (부회장)' },
-    org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
-  },
-  {
-    logo: '/logos/yai.png',
-    period: { en: '17th cohort – Present', ko: '17기 – 현재' },
-    role: { en: 'Member', ko: '회원' },
+    period: { en: 'Jan 2026 – Present', ko: '2026.01 – 현재' },
+    role: { en: 'Member, 17th cohort – Present', ko: '회원, 17기 – 현재' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
     note: {
       en: 'Studied computer vision papers and joined industry and YAICON projects.',
@@ -98,6 +98,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    logo: '/logos/roka.png',
     period: { en: 'Mar 2024 – Sep 2025', ko: '2024.03 – 2025.09' },
     role: { en: 'Military service', ko: '군 복무' },
     org: { en: 'Republic of Korea Army', ko: '대한민국 육군' },
