@@ -14,7 +14,7 @@ export const profile = {
   monogram: 'JM',
   positions: [
     { role: { en: 'Undergraduate Student', ko: '학부생' }, org: { en: 'Computer Science, Yonsei University', ko: '연세대학교 컴퓨터과학과' } },
-    { role: { en: 'Research Intern', ko: '연구 인턴' }, org: { en: 'Edge AI Lab (Prof. Dong-Jun Han)', ko: 'Edge AI Lab (지도교수 한동준)' } },
+    { role: { en: 'Undergraduate Researcher', ko: '학부 연구생' }, org: { en: 'Edge AI Lab (Prof. Dong-Jun Han)', ko: 'Edge AI Lab (지도교수 한동준)' } },
     { role: { en: 'Member', ko: '회원' }, org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' } },
   ] as { role: Text; org: Text }[],
   greeting: {
@@ -70,7 +70,7 @@ export const experience: Experience[] = [
   {
     logo: '/logos/yonsei.svg',
     period: { en: 'Jul 2026 – Present', ko: '2026.07 – 현재' },
-    role: { en: 'Undergraduate Research Intern', ko: '학부생 연구 인턴' },
+    role: { en: 'Undergraduate Researcher', ko: '학부 연구생' },
     org: { en: 'Edge AI Lab, Yonsei University', ko: '연세대학교 Edge AI Lab' },
     note: {
       en: 'Leading implementation and experiments on LLM Continual Unlearning with Prof. Dong-Jun Han.',
@@ -107,7 +107,7 @@ export const experience: Experience[] = [
   {
     logo: '/logos/dli.jpg',
     period: { en: 'Jan 2024 – Feb 2024', ko: '2024.01 – 2024.02' },
-    role: { en: 'Undergraduate Intern', ko: '학부생 인턴' },
+    role: { en: 'Undergraduate Researcher', ko: '학부 연구생' },
     org: { en: 'DLI Lab, Yonsei University', ko: '연세대학교 DLI Lab' },
     note: {
       en: 'Studied NLP through Stanford CS224N and paper reviews with Prof. Jinyoung Yeo’s lab.',
