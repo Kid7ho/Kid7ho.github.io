@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { caseStudy, featured, ui, type Lang } from '@/content/site';
+import { FigureGrid } from './FigureGrid';
 import { Footer } from './Footer';
 
 export function CaseStudy({ lang }: { lang: Lang }) {
@@ -21,6 +22,11 @@ export function CaseStudy({ lang }: { lang: Lang }) {
               <p>{section.body[lang]}</p>
             </section>
           ))}
+
+          <section>
+            <h2>{caseStudy.howItWorks.heading[lang]}</h2>
+            <FigureGrid figures={caseStudy.howItWorks.figures} columns={4} lang={lang} />
+          </section>
 
           <section>
             <h2>{caseStudy.verdictHeading[lang]}</h2>

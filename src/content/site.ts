@@ -8,7 +8,8 @@ export const profile = {
   email: 'jinmyoung.hyun@gmail.com',
   github: 'https://github.com/Kid7ho',
   // Add the LinkedIn URL once the account exists.
-  linkedin: null as string | null,
+  linkedin: 'https://www.linkedin.com/in/%EC%A7%84%EB%AA%85-%ED%98%84-83b313424/',
+  linkedinLabel: 'linkedin.com/in/진명-현-83b313424' as string | null,
   // Put the image in public/ and set the path, for example '/profile.jpg'.
   photo: '/profile.jpg' as string | null,
   monogram: 'JM',
@@ -43,7 +44,8 @@ export const ui = {
   experience: { en: 'Experience', ko: '경력' },
   recognition: { en: 'Awards', ko: '수상' },
   email: { en: 'Email', ko: '이메일' },
-  viewProject: { en: 'Read the case study', ko: '자세히 보기' },
+  viewProject: { en: 'See in Details', ko: '자세히 보기' },
+  newBadge: 'New',
   openResume: { en: 'Open resume', ko: '이력서 보기' },
   backToProjects: { en: 'All projects', ko: '프로젝트 목록' },
   skip: { en: 'Skip to content', ko: '본문으로 건너뛰기' },
@@ -227,7 +229,8 @@ export const research = {
 };
 
 export type Project = {
-  slug?: string;
+  isNew?: boolean;
+  slug: string;
   title: Text;
   period: Text;
   summary: Text;
@@ -238,6 +241,7 @@ export type Project = {
 
 export const featured: Project = {
   slug: 'ai-health-guardian',
+  isNew: true,
   title: { en: 'AI Health Guardian', ko: 'AI 건강지킴이' },
   period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
   summary: {
@@ -255,8 +259,12 @@ export const featured: Project = {
   ],
 };
 
+// The entry with isNew fills the top slot on the Projects page and gets the New badge.
+// To feature a new project, add it here with isNew: true and remove the flag from the old one.
 export const projects: Project[] = [
+  featured,
   {
+    slug: 'mapmory',
     title: { en: 'Mapmory', ko: 'Mapmory' },
     period: { en: 'Jul 2026 – Sep 2026', ko: '2026.07 – 2026.09' },
     summary: {
@@ -268,6 +276,7 @@ export const projects: Project[] = [
     links: [{ label: { en: 'Instagram', ko: 'Instagram' }, href: 'https://www.instagram.com/mapmory_official/' }],
   },
   {
+    slug: 'real-fit',
     title: { en: 'Real Fit Recommendation System', ko: 'Real Fit Recommendation System' },
     period: { en: 'Apr 2026 – Jun 2026', ko: '2026.04 – 2026.06' },
     summary: {
@@ -282,6 +291,7 @@ export const projects: Project[] = [
     links: [],
   },
   {
+    slug: 'market-direction',
     title: { en: 'LSTM vs. ResNet for Market Direction', ko: 'LSTM vs. ResNet 주가 방향 예측' },
     period: { en: 'Jan 2026 – Mar 2026', ko: '2026.01 – 2026.03' },
     summary: {
@@ -293,6 +303,7 @@ export const projects: Project[] = [
     links: [{ label: { en: 'Code', ko: '코드' }, href: 'https://github.com/Kid7ho/YAI-17_Toy-Project_Stock-Trading' }],
   },
   {
+    slug: 'trash-workshop',
     title: { en: 'Trash Workshop', ko: '쓰레기 공작소' },
     period: { en: 'Jun 2023', ko: '2023.06' },
     summary: {
@@ -304,11 +315,12 @@ export const projects: Project[] = [
     links: [],
   },
   {
+    slug: 'unity-games',
     title: { en: 'Unity games', ko: 'Unity 게임 모음' },
-    period: { en: '2018 – 2024', ko: '2018 – 2024' },
+    period: { en: '2017 – 2024', ko: '2017 – 2024' },
     summary: {
-      en: 'Where I started programming: Hexavity, Omok, Othello, Kinetic Wall Clock, and more, playable in the browser.',
-      ko: '프로그래밍을 시작한 곳입니다. Hexavity, 오목, 오델로, Kinetic Wall Clock 등을 브라우저에서 해 볼 수 있습니다.',
+      en: 'Where I started programming: the Unity projects I have made since 2017, most of them playable in the browser.',
+      ko: '프로그래밍을 시작한 곳입니다. 2017년부터 만든 Unity 프로젝트를 모았고, 대부분 브라우저에서 해 볼 수 있습니다.',
     },
     role: { en: 'Mostly solo; team lead on Tile Game, released on Google Play', ko: '대부분 개인 프로젝트. Tile Game은 팀장으로 Google Play 출시' },
     stack: 'Unity, C#',
@@ -323,10 +335,20 @@ export const projectsPage = {
     ko: '초기 게임부터 실제 사용자가 쓰는 서비스까지, 직접 만든 것들입니다.',
   } as Text,
   roleLabel: { en: 'My role', ko: '맡은 일' } as Text,
+  stackLabel: { en: 'Stack', ko: '기술' } as Text,
 };
 
 export const caseStudy = {
   title: featured.title,
+  howItWorks: {
+    heading: { en: 'How it is used', ko: '사용 방법' } as Text,
+    figures: [
+      { src: '/projects/ai-health-guardian/step-share.jpg', alt: { en: 'Tapping share on a video', ko: '영상에서 공유 버튼을 누르는 화면' }, caption: { en: '1. Tap share on the video.', ko: '1. 영상에서 공유를 누릅니다.' } },
+      { src: '/projects/ai-health-guardian/step-copy.jpg', alt: { en: 'Choosing copy link', ko: '링크 복사를 고르는 화면' }, caption: { en: '2. Copy the link.', ko: '2. 링크를 복사합니다.' } },
+      { src: '/projects/ai-health-guardian/step-paste.jpg', alt: { en: 'Pasting the link into the chat', ko: '채팅창에 링크를 붙여넣는 화면' }, caption: { en: '3. Paste it into the chat.', ko: '3. 채팅창에 붙여넣습니다.' } },
+      { src: '/projects/ai-health-guardian/step-result.jpg', alt: { en: 'A result card', ko: '결과 카드' }, caption: { en: '4. Read the result card.', ko: '4. 결과 카드를 확인합니다.' } },
+    ],
+  },
   lead: {
     en: 'Health videos and messages spread faster than older adults can check them. This service makes checking as easy as sharing.',
     ko: '건강 영상과 메시지는 어르신이 확인하는 속도보다 빠르게 퍼집니다. 이 서비스는 확인을 공유만큼 쉽게 만듭니다.',

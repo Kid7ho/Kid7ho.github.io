@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { featured, projects, projectsPage, ui, type Lang, type Project } from '@/content/site';
+import { projects, projectsPage, ui, type Lang, type Project } from '@/content/site';
 import { Footer } from './Footer';
 import { Wave } from './Wave';
 
@@ -14,6 +14,8 @@ function ProjectLinks({ project, lang }: { project: Project; lang: Lang }) {
 
 export function Projects({ lang }: { lang: Lang }) {
   const prefix = lang === 'ko' ? '/ko' : '';
+  const latest = projects.find((project) => project.isNew) ?? projects[0];
+  const others = projects.filter((project) => project !== latest);
   return (
     <>
       <main id="main">
@@ -26,14 +28,17 @@ export function Projects({ lang }: { lang: Lang }) {
         <Wave from="var(--foam)" to="var(--ocean)" />
         <section className="featured">
           <div className="wrap">
-            <p className="featured__period">{featured.period[lang]}</p>
-            <h2>{featured.title[lang]}</h2>
-            <p className="featured__summary">{featured.summary[lang]}</p>
-            <p>{featured.role[lang]}</p>
-            <p className="featured__stack">{featured.stack}</p>
+            <p className="featured__period">{latest.period[lang]}</p>
+            <h2>
+              {latest.title[lang]}
+              {latest.isNew ? <span className="badge-new">{ui.newBadge}</span> : null}
+            </h2>
+            <p className="featured__summary">{latest.summary[lang]}</p>
+            <p>{latest.role[lang]}</p>
+            <p className="featured__stack">{latest.stack}</p>
             <div className="featured__actions">
-              <Link className="button button--light" href={`${prefix}/projects/${featured.slug}/`}>{ui.viewProject[lang]}</Link>
-              {featured.links.map((link) => <a className="text-link" key={link.href} href={link.href}>{link.label[lang]}</a>)}
+              <Link className="button button--light" href={`${prefix}/projects/${latest.slug}/`}>{ui.viewProject[lang]}</Link>
+              {latest.links.map((link) => <a className="text-link" key={link.href} href={link.href}>{link.label[lang]}</a>)}
             </div>
           </div>
         </section>
@@ -41,7 +46,7 @@ export function Projects({ lang }: { lang: Lang }) {
         <section className="project-list-section">
           <div className="wrap">
             <ol className="project-list">
-              {projects.map((project) => (
+              {others.map((project) => (
                 <li key={project.title.en}>
                   <p className="project-list__period">{project.period[lang]}</p>
                   <div>
@@ -49,7 +54,10 @@ export function Projects({ lang }: { lang: Lang }) {
                     <p>{project.summary[lang]}</p>
                     <p className="meta">{projectsPage.roleLabel[lang]}: {project.role[lang]}</p>
                     <p className="meta">{project.stack}</p>
-                    <ProjectLinks project={project} lang={lang} />
+                    <div className="project__actions">
+                      <Link className="button button--small" href={`${prefix}/projects/${project.slug}/`}>{ui.viewProject[lang]}</Link>
+                      <ProjectLinks project={project} lang={lang} />
+                    </div>
                   </div>
                 </li>
               ))}

@@ -22,15 +22,18 @@ export function Home({ lang }: { lang: Lang }) {
                     <dd>{item.org[lang]}</dd>
                   </Fragment>
                 ))}
+                <dt className="hero__contact">{ui.email[lang]}</dt>
+                <dd className="hero__contact"><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+                {profile.linkedin ? (
+                  <>
+                    <dt>LinkedIn</dt>
+                    <dd><a href={profile.linkedin}>{profile.linkedinLabel}</a></dd>
+                  </>
+                ) : null}
               </dl>
-              <p className="hero__email">
-                {ui.email[lang]}
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
-              </p>
               <div className="hero__actions">
                 <Link className="button" href={`${prefix}/resume/`}>{ui.openResume[lang]}</Link>
                 <a className="text-link" href={profile.github}>GitHub</a>
-                {profile.linkedin ? <a className="text-link" href={profile.linkedin}>LinkedIn</a> : null}
               </div>
             </div>
           </div>
