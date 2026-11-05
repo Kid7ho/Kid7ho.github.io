@@ -173,7 +173,7 @@ export const research = {
   },
   publicationsHeading: { en: 'Publications', ko: '논문' } as Text,
   roleLabel: { en: 'My role', ko: '본인 역할' } as Text,
-  // Newest first. Set `url` once a paper has a published page: the title then links to it.
+  // Newest first. Set `url` to the paper's page or a PDF in public/papers: the title then links to it.
   // `links` are extra links shown under the paper, such as code.
   publications: [
     {
@@ -206,6 +206,7 @@ export const research = {
         ko: '한국어 검색 에이전트 환경에서 조사 단위 프레이밍이 미치는 영향 분석',
       } as Text,
       venue: { en: 'HCLT 2026, Oral', ko: 'HCLT 2026, Oral' } as Text,
+      url: '/papers/How_You_Mark_It_Matters_HCLT_2026.pdf',
       links: [
         { label: { en: 'Code and draft', ko: '코드와 초고' }, href: 'https://github.com/choiyh592/How_You_Mark_It_Matters' },
         { label: { en: 'Conference program', ko: '학술대회 프로그램' }, href: 'https://sites.google.com/view/hclt2026/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8' },
@@ -223,6 +224,9 @@ export const research = {
         ko: '한국어 상용 생성형 검색 API의 자기주장 권위 단서와 응용 계층 사실검증',
       } as Text,
       venue: { en: 'Korea AI 2026', ko: '제7회 한국 인공지능 학술대회' } as Text,
+      links: [
+        { label: { en: 'Conference website', ko: '학술대회 홈페이지' }, href: 'https://koreaai.org/' },
+      ] as LinkItem[],
       role: { en: 'Co-built experimental data and reviewed the manuscript', ko: '실험 데이터 공동 구축, 논문 검수' } as Text,
     },
   ] as Publication[],
