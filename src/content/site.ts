@@ -209,7 +209,7 @@ export const research = {
       url: '/papers/How_You_Mark_It_Matters_HCLT_2026.pdf',
       links: [
         { label: { en: 'Code and draft', ko: '코드와 초고' }, href: 'https://github.com/choiyh592/How_You_Mark_It_Matters' },
-        { label: { en: 'Conference program', ko: '학술대회 프로그램' }, href: 'https://sites.google.com/view/hclt2026/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8' },
+        { label: { en: 'Conference website', ko: '학술대회 홈페이지' }, href: 'https://sites.google.com/view/hclt2026' },
       ] as LinkItem[],
       role: { en: 'Co-built experimental data and reviewed the manuscript', ko: '실험 데이터 공동 구축, 논문 검수' } as Text,
     },
