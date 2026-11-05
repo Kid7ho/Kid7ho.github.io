@@ -85,8 +85,8 @@ img, svg, iframe { display: block; max-width: 100%; }
 .text-link { font-weight: 600; color: var(--ocean); text-underline-offset: 0.25em; }
 .meta { color: var(--deep); font-size: 0.95rem; }
 
-.wave { line-height: 0; margin-bottom: -1px; position: relative; }
-.wave svg { width: 100%; height: clamp(2.25rem, 5vw, 4.5rem); }
+.wave { line-height: 0; position: relative; }
+.wave svg { display: block; overflow: visible; width: 100%; height: clamp(2.25rem, 5vw, 4.5rem); }
 
 /* Home */
 .hero { padding-block: clamp(3.5rem, 10vw, 7.5rem) clamp(2.5rem, 6vw, 4.5rem); }
