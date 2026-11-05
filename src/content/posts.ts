@@ -55,22 +55,6 @@ export const games: Game[] = [
     links: play('omok'),
   },
   {
-    title: { en: 'Galaga', ko: 'Galaga' },
-    period: { en: 'Aug 2023', ko: '2023.08' },
-    summary: {
-      en: 'A Unity version of the classic arcade shooter.',
-      ko: '고전 아케이드 슈팅 게임을 Unity로 구현했습니다.',
-    },
-  },
-  {
-    title: { en: 'Project Box', ko: 'Project Box' },
-    period: { en: 'Dec 2022 – Mar 2023', ko: '2022.12 – 2023.03' },
-    summary: {
-      en: 'A puzzle game by three computer science students. I handled player movement and the camera.',
-      ko: '컴퓨터과학과 3인 팀의 퍼즐 게임으로, 플레이어 이동과 카메라를 맡았습니다.',
-    },
-  },
-  {
     title: { en: 'High School Portfolio', ko: '고등학교 포트폴리오' },
     period: { en: '2021', ko: '2021' },
     summary: {
@@ -153,9 +137,10 @@ export const games: Game[] = [
     title: { en: 'SemiColon', ko: 'SemiColon' },
     period: { en: '2017', ko: '2017' },
     summary: {
-      en: 'A team Unity project from 2017, where I contributed 35 of the 151 commits.',
-      ko: '2017년 팀 Unity 프로젝트로, 전체 151개 커밋 중 35개를 작성했습니다.',
+      en: 'Where it all started. In my second year of middle school I joined the 2nd Gyeonggi Game Gifted Camp, wrote code for the first time, and won the top award, which got me seriously interested in programming.',
+      ko: '처음 게임 코딩을 접한 프로젝트입니다. 중학교 2학년 때 제2회 경기영재게임캠프에 참여해 처음 코딩을 해 보았고, 최우수상을 받으며 코딩에 본격적으로 흥미를 갖게 되었습니다.',
     },
+    links: [{ label: { en: 'About the camp', ko: '캠프 소개 글' }, href: 'https://blog.naver.com/gyeonggi_gov/221032638272?viewType=pc' }],
   },
 ];
 
@@ -256,34 +241,42 @@ export const posts: Post[] = [
   {
     slug: 'real-fit',
     lead: {
-      en: 'A size chart does not show how clothes will actually fit. Real Fit is a pipeline for showing that fit before you buy, made by a six-person team at YAICON.',
-      ko: '사이즈표만으로는 옷이 실제로 어떻게 맞을지 알기 어렵습니다. Real Fit은 구매 전에 그 핏을 보여 주는 파이프라인으로, YAICON에서 6인 팀이 만들었습니다.',
+      en: 'Start from one full-body photo, your height, and your weight. RFRS estimates your body, recommends a size, and shows a try-on image that reflects how it fits. Made by a six-person team at the 8th YAICON.',
+      ko: '전신사진 한 장과 키, 체중만 입력하면 체형을 추정해 사이즈를 추천하고, 실제 핏을 반영한 가상 피팅 이미지를 보여 줍니다. 제8회 YAICON에서 6인 팀이 만들었습니다.',
     },
     sections: [
       {
         heading: { en: 'The problem', ko: '문제' },
         body: [
           {
-            en: 'Size-related returns are a common problem in online clothing. The project asked whether body measurements, garment data, and reviews could produce a try-on image that reflects the size you actually pick.',
-            ko: '온라인 의류 구매에서는 사이즈 때문에 반품하는 일이 흔합니다. 이 프로젝트는 체형 정보, 상품 정보, 리뷰를 활용해 고른 사이즈가 반영된 착용 이미지를 만들 수 있는지 다루었습니다.',
+            en: 'Size-related returns are a common problem in online clothing, and a size chart alone does not show how something will fit. Our goal was a try-on model built on real body measurements, with two contributions: measuring actual sizes from a photo alone, and reflecting the real sense of fit in the try-on image.',
+            ko: '온라인 의류 구매에서는 사이즈 때문에 반품하는 일이 흔하고, 사이즈표만으로는 실제 핏을 알기 어렵습니다. 그래서 사용자의 신체 스펙을 바탕으로 한 실측 가상피팅 모델을 목표로 삼았습니다. 사진만으로 실측 사이즈를 측정하는 것과, 실측 사이즈를 바탕으로 실제 핏감을 반영하는 것이 핵심입니다.',
           },
         ],
       },
       {
-        heading: { en: 'The pipeline', ko: '파이프라인' },
+        heading: { en: 'How it works', ko: '작동 방식' },
         list: [
-          { en: 'Measure the body in 3D with SHAPY.', ko: 'SHAPY로 3D 체형을 측정합니다.' },
-          { en: 'Crawl Musinsa products and reviews.', ko: '무신사 상품과 리뷰를 수집합니다.' },
-          { en: 'Generate a size-aware try-on image with a FLUX-based model.', ko: 'FLUX 기반 모델로 사이즈를 반영한 Virtual Try-On 이미지를 생성합니다.' },
-          { en: 'Use review information as a condition.', ko: '리뷰 정보를 조건으로 반영합니다.' },
+          {
+            en: 'Body measurement: SHAPY and SMPL-X rebuild a 3D body from a single RGB image, then chest, waist, hips, and height are calculated from the mesh.',
+            ko: '신체 측정: SHAPY와 SMPL-X로 RGB 이미지 한 장에서 3D 인체를 복원하고, 생성된 메시에서 가슴, 허리, 엉덩이, 키 등의 치수를 계산합니다.',
+          },
+          {
+            en: 'Fit classification: a fit classifier combines the body, the product size chart, and review text to label the fit as slim, regular, or loose.',
+            ko: '핏 분류: 신체 정보, 제품 사이즈, 리뷰 텍스트를 함께 보고 slim, regular, loose 중 하나의 핏으로 분류합니다.',
+          },
+          {
+            en: 'Virtual try-on: the fit label conditions CatVTON through a Fit-Aware Layout Generator and a Multi-Scale Fit Injector, and a FLUX denoising loop generates the image.',
+            ko: '가상 피팅: 핏 라벨을 Fit-Aware Layout Generator와 Multi-Scale Fit Injector를 통해 CatVTON에 조건으로 넣고, FLUX 디노이징으로 이미지를 생성합니다.',
+          },
         ],
       },
       {
-        heading: { en: 'My part', ko: '맡은 일' },
+        heading: { en: 'Data', ko: '데이터' },
         body: [
           {
-            en: 'I collected and cleaned the Musinsa data: 6,858 reviews and 9,297 images, including the height, weight, and purchased size given in the reviews.',
-            ko: '무신사 데이터 수집과 정제를 맡아 리뷰 6,858건, 이미지 9,297장을 모으고, 리뷰에 담긴 키, 몸무게, 구매 사이즈 정보를 정리했습니다.',
+            en: 'We crawled Musinsa for top garments and buyer reviews: 6,858 reviews and 9,297 images in total. The training set came to 7,621 pairs (992 slim, 4,429 regular, 2,200 loose), labeled from official Musinsa fit data rather than by hand-written rules.',
+            ko: '무신사에서 상의 데이터와 실구매자 리뷰를 크롤링해 리뷰 6,858건, 이미지 9,297장을 모았습니다. 학습 데이터는 7,621쌍(slim 992건, regular 4,429건, loose 2,200건)이며, 핏 라벨은 경험식이 아닌 무신사 공식 핏 데이터를 기반으로 했습니다.',
           },
         ],
         columns: 2,
@@ -296,6 +289,32 @@ export const posts: Post[] = [
               ko: '초기 데이터셋의 키와 몸무게 분포입니다(리뷰 6,000건).',
             },
           },
+        ],
+      },
+      {
+        heading: { en: 'Result', ko: '결과' },
+        body: [
+          {
+            en: 'The demo starts with a photo, height, and weight. It estimates the body, recommends a size with a fit score, and generates a try-on image. The demo model was trained on 5,893 reviews and 120 garments with CatVTON and LoRA.',
+            ko: '데모는 사진, 키, 체중 입력으로 시작합니다. 체형을 자동으로 추정하고, 적합도와 함께 사이즈를 추천한 뒤, 가상 피팅 이미지를 생성합니다. 데모 모델은 리뷰 5,893개와 의류 120벌로 학습했습니다(CatVTON × LoRA).',
+          },
+        ],
+      },
+      {
+        heading: { en: 'My part', ko: '맡은 일' },
+        body: [
+          {
+            en: 'I worked on building the pipeline and crawling the data.',
+            ko: '파이프라인 구축과 데이터 크롤링을 맡았습니다.',
+          },
+        ],
+      },
+      {
+        heading: { en: 'Next steps', ko: '다음 단계' },
+        list: [
+          { en: 'Extend try-on and size recommendation from tops to bottoms.', ko: '상의에서 하의까지 가상 피팅과 사이즈 추천을 확장합니다.' },
+          { en: 'Fine-tune CatVTON LoRA on measurement conditions to improve fit accuracy.', ko: '측정 조건부 CatVTON LoRA를 파인튜닝해 핏 정확도를 높입니다.' },
+          { en: 'Fully integrate precise body measurement with SMPL-X (Multi-HMR).', ko: 'SMPL-X(Multi-HMR) 기반의 정밀 체형 측정을 정식으로 통합합니다.' },
         ],
       },
     ],
