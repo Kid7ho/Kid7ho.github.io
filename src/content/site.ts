@@ -322,7 +322,7 @@ export const projects: Project[] = [
   {
     slug: 'unity-games',
     title: { en: 'Unity games', ko: 'Unity 게임 모음' },
-    period: { en: '2017 – 2024', ko: '2017 – 2024' },
+    period: { en: '2017 – 2022', ko: '2017 – 2022' },
     summary: {
       en: 'Where I started programming: the Unity projects I have made since 2017, most of them playable in the browser.',
       ko: '프로그래밍을 시작한 곳입니다. 2017년부터 만든 Unity 프로젝트를 모았고, 대부분 브라우저에서 해 볼 수 있습니다.',

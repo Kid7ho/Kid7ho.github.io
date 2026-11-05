@@ -36,7 +36,7 @@ const play = (slug: string): LinkItem[] => [
 export const games: Game[] = [
   {
     title: { en: 'Othello', ko: '오델로' },
-    period: { en: 'Feb 2024', ko: '2024.02' },
+    period: { en: 'Jan 2022', ko: '2022.01' },
     summary: {
       en: 'Two-player Othello on an 8x8 board, played in the browser.',
       ko: '8x8 보드에서 두 명이 즐기는 오델로로, 브라우저에서 플레이할 수 있습니다.',
@@ -46,7 +46,7 @@ export const games: Game[] = [
   },
   {
     title: { en: 'Omok', ko: '오목' },
-    period: { en: 'Feb 2024', ko: '2024.02' },
+    period: { en: 'Jan 2022', ko: '2022.01' },
     summary: {
       en: 'Two-player Omok, built alongside Othello.',
       ko: '오델로와 함께 만든 2인용 오목 게임입니다.',
