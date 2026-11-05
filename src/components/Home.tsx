@@ -59,6 +59,16 @@ export function Home({ lang }: { lang: Lang }) {
             <ol className="sounding">
               {experience.map((item) => (
                 <li key={item.period.en + item.org.en}>
+                  <span className="sounding__logo" aria-hidden="true">
+                    {item.logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={item.logo} alt="" width={48} height={48} loading="lazy" />
+                    ) : (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 3l7.5 2.8v5.7c0 4.6-3.1 7.9-7.5 9.5-4.4-1.6-7.5-4.9-7.5-9.5V5.8z" />
+                      </svg>
+                    )}
+                  </span>
                   <p className="sounding__period">{item.period[lang]}</p>
                   <div>
                     <h3>{item.role[lang]}</h3>

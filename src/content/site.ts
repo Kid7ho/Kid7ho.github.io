@@ -52,6 +52,8 @@ export const ui = {
 } satisfies Record<string, unknown>;
 
 export type Experience = {
+  // Image in public/logos, shown beside the entry. Without one, a plain shield icon is shown.
+  logo?: string;
   period: Text;
   role: Text;
   org: Text;
@@ -60,6 +62,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    logo: '/logos/yonsei.svg',
     period: { en: 'Jul 2026 – Present', ko: '2026.07 – 현재' },
     role: { en: 'Undergraduate Research Intern', ko: '학부생 연구 인턴' },
     org: { en: 'Edge AI Lab, Yonsei University', ko: '연세대학교 Edge AI Lab' },
@@ -69,6 +72,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    logo: '/logos/yai.png',
     period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
     role: { en: 'Team Lead', ko: '팀장' },
     org: { en: 'AI Health Guardian, YAI × Liner', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
@@ -78,11 +82,13 @@ export const experience: Experience[] = [
     },
   },
   {
+    logo: '/logos/yai.png',
     period: { en: '19th cohort (incoming)', ko: '19기 (예정)' },
     role: { en: 'Vice President', ko: '운영부장 (부회장)' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
   },
   {
+    logo: '/logos/yai.png',
     period: { en: '17th cohort – Present', ko: '17기 – 현재' },
     role: { en: 'Member', ko: '회원' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
@@ -98,6 +104,7 @@ export const experience: Experience[] = [
     note: { en: 'Honorably discharged as a sergeant.', ko: '병장 만기 전역' },
   },
   {
+    logo: '/logos/dli.jpg',
     period: { en: 'Jan 2024 – Feb 2024', ko: '2024.01 – 2024.02' },
     role: { en: 'Undergraduate Intern', ko: '학부생 인턴' },
     org: { en: 'DLI Lab, Yonsei University', ko: '연세대학교 DLI Lab' },
@@ -107,6 +114,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    logo: '/logos/yonsei.svg',
     period: { en: 'Mar 2022 – Feb 2028 (expected)', ko: '2022.03 – 2028.02 (졸업 예정)' },
     role: { en: 'B.S. in Computer Science', ko: '컴퓨터과학과 학사' },
     org: { en: 'Yonsei University', ko: '연세대학교' },
@@ -131,6 +139,15 @@ export const awards: { date: Text; title: Text; note: Text }[] = [
   },
 ];
 
+export type Publication = {
+  date: Text;
+  authors: Text;
+  title: Text;
+  venue: Text;
+  role: Text;
+  links?: LinkItem[];
+};
+
 export const research = {
   title: { en: 'Research', ko: '연구' } as Text,
   current: {
@@ -146,13 +163,13 @@ export const research = {
       { en: 'Machine Unlearning', ko: 'Machine Unlearning' },
       { en: 'Continual Learning', ko: 'Continual Learning' },
       { en: 'Federated Learning', ko: 'Federated Learning' },
-      { en: 'On-device AI', ko: 'On-Device AI' },
+      { en: 'On-Device AI', ko: 'On-Device AI' },
       { en: 'Trustworthy AI', ko: '신뢰할 수 있는 AI' },
     ] as Text[],
   },
   publicationsHeading: { en: 'Publications', ko: '논문' } as Text,
   roleLabel: { en: 'My role', ko: '본인 역할' } as Text,
-  // Newest first.
+  // Newest first. Add `links` to a paper once it has a public page.
   publications: [
     {
       date: { en: 'In preparation', ko: '준비 중' } as Text,
@@ -184,6 +201,11 @@ export const research = {
         ko: '한국어 검색 에이전트 환경에서 조사 단위 프레이밍이 미치는 영향 분석',
       } as Text,
       venue: { en: 'HCLT 2026, Oral', ko: 'HCLT 2026, Oral' } as Text,
+      // The title links to the first entry. Put the published paper page first once it exists.
+      links: [
+        { label: { en: 'Code and draft', ko: '코드와 초고' }, href: 'https://github.com/choiyh592/How_You_Mark_It_Matters' },
+        { label: { en: 'Conference program', ko: '학술대회 프로그램' }, href: 'https://sites.google.com/view/hclt2026/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8' },
+      ] as LinkItem[],
       role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
     },
     {
@@ -199,7 +221,7 @@ export const research = {
       venue: { en: 'Korea AI 2026', ko: '제7회 한국 인공지능 학술대회' } as Text,
       role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
     },
-  ],
+  ] as Publication[],
   note: { en: '† Equal first authors', ko: '† 공동 제1저자' } as Text,
 };
 

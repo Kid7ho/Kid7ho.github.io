@@ -20,10 +20,17 @@ export function Research({ lang }: { lang: Lang }) {
                 <li key={paper.title.en}>
                   <p className="publications__date">{paper.date[lang]}</p>
                   <div>
-                    <h3>{paper.title[lang]}</h3>
+                    <h3>
+                      {paper.links?.length ? <a href={paper.links[0].href}>{paper.title[lang]}</a> : paper.title[lang]}
+                    </h3>
                     <p>{paper.authors[lang]}</p>
                     <p className="publications__venue">{paper.venue[lang]}</p>
                     <p className="meta">{research.roleLabel[lang]}: {paper.role[lang]}</p>
+                    {paper.links?.length ? (
+                      <p className="project__links">
+                        {paper.links.map((link) => <a key={link.href} href={link.href}>{link.label[lang]}</a>)}
+                      </p>
+                    ) : null}
                   </div>
                 </li>
               ))}
