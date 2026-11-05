@@ -12,14 +12,26 @@ export const profile = {
   // Put the image in public/ and set the path, for example '/profile.jpg'.
   photo: '/profile.jpg' as string | null,
   monogram: 'JM',
-  headline: {
-    en: 'I study how AI systems remember, forget, and earn trust.',
-    ko: 'AI가 무엇을 기억하고, 잊고, 믿을 수 있는지 연구합니다.',
-  } as Text,
-  intro: {
-    en: 'I’m a computer science undergraduate at Yonsei University. I work on continual unlearning for LLMs at Edge AI Lab, and I lead AI Health Guardian, a KakaoTalk service that helps older adults check the health information they receive.',
-    ko: '연세대학교 컴퓨터과학과 학부생입니다. Edge AI Lab에서 LLM Continual Unlearning을 연구하고, 어르신이 받은 건강정보를 확인하도록 돕는 카카오톡 서비스 AI 건강지킴이를 이끌고 있습니다.',
-  } as Text,
+  positions: [
+    { role: { en: 'Undergraduate Student', ko: '학부생' }, org: { en: 'Computer Science, Yonsei University', ko: '연세대학교 컴퓨터과학과' } },
+    { role: { en: 'Research Intern', ko: '연구 인턴' }, org: { en: 'Edge AI Lab (Prof. Dong-Jun Han)', ko: 'Edge AI Lab (지도교수 한동준)' } },
+    { role: { en: 'Team Lead', ko: '팀장' }, org: { en: 'AI Health Guardian (YAI × Liner)', ko: 'AI 건강지킴이 (YAI × Liner)' } },
+    { role: { en: 'Member', ko: '회원' }, org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' } },
+  ] as { role: Text; org: Text }[],
+  greeting: {
+    hello: { en: 'Hello!', ko: '안녕하세요!' } as Text,
+    // Text in [brackets] links to the AI Health Guardian case study.
+    paragraphs: [
+      {
+        en: 'I’m Jin Myoung Hyun, a computer science undergraduate at Yonsei University. I’m interested in how AI systems remember, forget, and earn trust, and I’m currently working on LLM Continual Unlearning at Edge AI Lab, advised by Prof. Dong-Jun Han.',
+        ko: '연세대학교 컴퓨터과학과 학부생 현진명입니다. AI가 무엇을 기억하고, 잊고, 믿을 수 있는지에 관심을 두고, 현재 Edge AI Lab에서 한동준 교수님 지도 아래 LLM Continual Unlearning을 연구하고 있습니다.',
+      },
+      {
+        en: 'I also lead [AI Health Guardian], a KakaoTalk service that helps older adults check the health information they receive.',
+        ko: '또한 어르신이 받은 건강정보를 확인하도록 돕는 카카오톡 서비스 [AI 건강지킴이]를 이끌고 있습니다.',
+      },
+    ] as Text[],
+  },
 };
 
 export const ui = {
@@ -31,11 +43,7 @@ export const ui = {
   },
   experience: { en: 'Experience', ko: '경력' },
   recognition: { en: 'Awards', ko: '수상' },
-  contact: { en: 'Contact', ko: '연락처' },
-  contactLine: {
-    en: 'Email is the best way to reach me.',
-    ko: '연락은 이메일로 주시면 가장 빠릅니다.',
-  },
+  email: { en: 'Email', ko: '이메일' },
   viewProject: { en: 'Read the case study', ko: '자세히 보기' },
   openResume: { en: 'Open resume', ko: '이력서 보기' },
   backToProjects: { en: 'All projects', ko: '프로젝트 목록' },
@@ -48,7 +56,7 @@ export type Experience = {
   period: Text;
   role: Text;
   org: Text;
-  note: Text;
+  note?: Text;
 };
 
 export const experience: Experience[] = [
@@ -57,7 +65,7 @@ export const experience: Experience[] = [
     role: { en: 'Undergraduate Research Intern', ko: '학부생 연구 인턴' },
     org: { en: 'Edge AI Lab, Yonsei University', ko: '연세대학교 Edge AI Lab' },
     note: {
-      en: 'Leading implementation and experiments on LLM continual unlearning with Prof. Dong-Jun Han.',
+      en: 'Leading implementation and experiments on LLM Continual Unlearning with Prof. Dong-Jun Han.',
       ko: '한동준 교수님 지도 아래 LLM Continual Unlearning의 구현과 실험을 주도하고 있습니다.',
     },
   },
@@ -71,12 +79,17 @@ export const experience: Experience[] = [
     },
   },
   {
-    period: { en: 'Dec 2025 – Present', ko: '2025.12 – 현재' },
-    role: { en: 'Member, incoming Vice President', ko: '회원, 19기 운영부장(부회장) 예정' },
+    period: { en: '19th cohort (incoming)', ko: '19기 (예정)' },
+    role: { en: 'Vice President', ko: '운영부장 (부회장)' },
+    org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
+  },
+  {
+    period: { en: '17th cohort – Present', ko: '17기 – 현재' },
+    role: { en: 'Member', ko: '회원' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
     note: {
-      en: 'Studied computer vision papers and joined industry and YAICON projects across the 17th and 18th cohorts.',
-      ko: '17–18기 동안 컴퓨터비전 논문을 공부하고 산학협력과 YAICON 프로젝트에 참여했습니다.',
+      en: 'Studied computer vision papers and joined industry and YAICON projects.',
+      ko: '컴퓨터비전 논문을 공부하고 산학협력과 YAICON 프로젝트에 참여하고 있습니다.',
     },
   },
   {
@@ -117,82 +130,33 @@ export const awards: { date: Text; title: Text; note: Text }[] = [
       ko: '팀장. 101팀 중 본선 15팀에 진출해 7위',
     },
   },
-  {
-    date: { en: 'Fall 2026', ko: '2026년 2학기' },
-    title: { en: 'Jinri Scholarship, Yonsei University', ko: '대학배정(진리)장학금, 연세대학교' },
-    note: { en: '', ko: '' },
-  },
 ];
 
 export const research = {
   title: { en: 'Research', ko: '연구' } as Text,
-  lead: {
-    en: 'My work asks what it takes for an AI model to forget on request and stay reliable afterwards.',
-    ko: 'AI 모델이 요청받은 정보를 잊으면서도 믿을 만한 상태를 유지하려면 무엇이 필요한지 연구합니다.',
-  } as Text,
   current: {
-    heading: { en: 'LLM continual unlearning', ko: 'LLM Continual Unlearning' } as Text,
-    meta: {
-      en: 'Edge AI Lab, Yonsei University. Advisor: Prof. Dong-Jun Han. Jul 2026 – Present',
-      ko: '연세대학교 Edge AI Lab, 지도교수 한동준. 2026.07 – 현재',
-    } as Text,
+    heading: { en: 'LLM Continual Unlearning', ko: 'LLM Continual Unlearning' } as Text,
     body: {
-      en: 'Deletion requests can arrive one after another. A model has to remove each target, keep earlier removals in place, and preserve what it should still know. I lead the implementation and experiments for this project, using Llama-3.2-1B on the TOFU benchmark.',
-      ko: '삭제 요청은 연속으로 들어올 수 있습니다. 모델은 요청받은 정보를 지우면서, 이전에 지운 상태를 유지하고, 남겨야 할 지식은 보존해야 합니다. 이 프로젝트의 구현과 실험을 주도하고 있으며, TOFU 벤치마크와 Llama-3.2-1B를 사용합니다.',
+      en: 'I study how large language models can remove requested information one request after another while keeping the knowledge they should retain.',
+      ko: '대규모 언어 모델이 연속된 삭제 요청마다 지정된 정보를 지우면서 남겨야 할 지식은 유지하는 방법을 연구합니다.',
     } as Text,
-    points: [
-      {
-        en: 'Evaluated Select and Distill (ECCV 2024) under continual learning and continual unlearning.',
-        ko: 'Select and Distill (ECCV 2024)을 Continual Learning과 Continual Unlearning 환경에서 검증했습니다.',
-      },
-      {
-        en: 'Found a conflict in its design: its reference set would require keeping the very data that unlearning must remove.',
-        ko: 'Reference Set 구조는 지워야 할 데이터를 계속 보관해야 한다는 점에서 Unlearning과 충돌함을 확인했습니다.',
-      },
-      {
-        en: 'Now testing a dual-teacher design that locates forgotten regions from the difference between teachers alone.',
-        ko: '두 Teacher의 차이만으로 지운 영역을 찾는 Dual Teacher 구조를 실험하고 있습니다.',
-      },
-    ] as Text[],
   },
   interests: {
     heading: { en: 'Interests', ko: '관심 분야' } as Text,
     items: [
-      { en: 'Machine unlearning', ko: 'Machine Unlearning' },
-      { en: 'Continual learning', ko: 'Continual Learning' },
-      { en: 'Federated learning', ko: 'Federated Learning' },
+      { en: 'Machine Unlearning', ko: 'Machine Unlearning' },
+      { en: 'Continual Learning', ko: 'Continual Learning' },
+      { en: 'Federated Learning', ko: 'Federated Learning' },
       { en: 'On-device AI', ko: 'On-Device AI' },
       { en: 'Trustworthy AI', ko: '신뢰할 수 있는 AI' },
     ] as Text[],
   },
   publicationsHeading: { en: 'Publications', ko: '논문' } as Text,
   roleLabel: { en: 'My role', ko: '본인 역할' } as Text,
+  // Newest first.
   publications: [
     {
-      authors: {
-        en: 'Y. Choi, N. Kwak, H. J. Lee, K. Lee, J. M. Hyun',
-        ko: '최윤혁, 곽나연, 이현준, 이강원, 현진명',
-      } as Text,
-      title: {
-        en: 'How You Mark It Matters: Particle-Level Framing Effects in a Korean Search Agent',
-        ko: '한국어 검색 에이전트 환경에서 조사 단위 프레이밍이 미치는 영향 분석',
-      } as Text,
-      venue: { en: 'HCLT 2026, Oral', ko: 'HCLT 2026, Oral' } as Text,
-      role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
-    },
-    {
-      authors: {
-        en: 'K. Lee†, Y. Choi†, J. M. Hyun, H. J. Lee, N. Kwak',
-        ko: '이강원†, 최윤혁†, 현진명, 이현준, 곽나연',
-      } as Text,
-      title: {
-        en: 'Self-Claimed Authority Cues and Application-Layer Fact Verification in a Korean-Language Commercial Generative Search API',
-        ko: '한국어 상용 생성형 검색 API의 자기주장 권위 단서와 응용 계층 사실검증',
-      } as Text,
-      venue: { en: 'Korea AI 2026', ko: '제7회 한국 인공지능 학술대회' } as Text,
-      role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
-    },
-    {
+      date: { en: 'In preparation', ko: '준비 중' } as Text,
       authors: {
         en: 'Y. Choi, K. Lee, J. M. Hyun',
         ko: 'Y. Choi, K. Lee, J. M. Hyun',
@@ -209,6 +173,32 @@ export const research = {
         en: 'Co-second author (tentative); writing and idea development',
         ko: '공동 2저자 예정, 일부 집필과 아이디어 발전',
       } as Text,
+    },
+    {
+      date: { en: 'Oct 2026', ko: '2026.10' } as Text,
+      authors: {
+        en: 'Y. Choi, N. Kwak, H. J. Lee, K. Lee, J. M. Hyun',
+        ko: '최윤혁, 곽나연, 이현준, 이강원, 현진명',
+      } as Text,
+      title: {
+        en: 'How You Mark It Matters: Particle-Level Framing Effects in a Korean Search Agent',
+        ko: '한국어 검색 에이전트 환경에서 조사 단위 프레이밍이 미치는 영향 분석',
+      } as Text,
+      venue: { en: 'HCLT 2026, Oral', ko: 'HCLT 2026, Oral' } as Text,
+      role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
+    },
+    {
+      date: { en: 'Sep 2026', ko: '2026.09' } as Text,
+      authors: {
+        en: 'K. Lee†, Y. Choi†, J. M. Hyun, H. J. Lee, N. Kwak',
+        ko: '이강원†, 최윤혁†, 현진명, 이현준, 곽나연',
+      } as Text,
+      title: {
+        en: 'Self-Claimed Authority Cues and Application-Layer Fact Verification in a Korean-Language Commercial Generative Search API',
+        ko: '한국어 상용 생성형 검색 API의 자기주장 권위 단서와 응용 계층 사실검증',
+      } as Text,
+      venue: { en: 'Korea AI 2026', ko: '제7회 한국 인공지능 학술대회' } as Text,
+      role: { en: 'Co-built experimental data', ko: '실험 데이터 공동 구축' } as Text,
     },
   ],
   note: { en: '† Equal first authors', ko: '† 공동 제1저자' } as Text,

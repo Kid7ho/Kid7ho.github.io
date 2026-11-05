@@ -1,5 +1,6 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
-import { awards, experience, profile, ui, type Lang } from '@/content/site';
+import { awards, experience, featured, profile, ui, type Lang } from '@/content/site';
 import { Footer } from './Footer';
 import { Portrait } from './Portrait';
 import { Wave } from './Wave';
@@ -11,17 +12,42 @@ export function Home({ lang }: { lang: Lang }) {
       <main id="main">
         <section className="hero">
           <div className="wrap hero__grid">
+            <Portrait lang={lang} />
             <div>
               <h1>{profile.name[lang]}</h1>
-              <p className="hero__headline">{profile.headline[lang]}</p>
-              <p className="hero__intro">{profile.intro[lang]}</p>
+              <dl className="hero__positions">
+                {profile.positions.map((item) => (
+                  <Fragment key={item.org.en}>
+                    <dt>{item.role[lang]}</dt>
+                    <dd>{item.org[lang]}</dd>
+                  </Fragment>
+                ))}
+              </dl>
+              <p className="hero__email">
+                {ui.email[lang]}
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              </p>
               <div className="hero__actions">
                 <Link className="button" href={`${prefix}/resume/`}>{ui.openResume[lang]}</Link>
                 <a className="text-link" href={profile.github}>GitHub</a>
-                <a className="text-link" href={`mailto:${profile.email}`}>Email</a>
+                {profile.linkedin ? <a className="text-link" href={profile.linkedin}>LinkedIn</a> : null}
               </div>
             </div>
-            <Portrait lang={lang} />
+          </div>
+        </section>
+
+        <section className="greeting" aria-labelledby="greeting-title">
+          <div className="wrap">
+            <div className="greeting__body">
+              <h2 id="greeting-title">{profile.greeting.hello[lang]}</h2>
+              {profile.greeting.paragraphs.map((paragraph) => (
+                <p key={paragraph.en}>
+                  {paragraph[lang].split(/\[(.+?)\]/).map((part, index) =>
+                    index % 2 ? <Link key={part} href={`${prefix}/projects/${featured.slug}/`}>{part}</Link> : part,
+                  )}
+                </p>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -37,7 +63,7 @@ export function Home({ lang }: { lang: Lang }) {
                   <div>
                     <h3>{item.role[lang]}</h3>
                     <p className="sounding__org">{item.org[lang]}</p>
-                    <p>{item.note[lang]}</p>
+                    {item.note ? <p>{item.note[lang]}</p> : null}
                   </div>
                 </li>
               ))}

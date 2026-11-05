@@ -7,15 +7,10 @@ export function Research({ lang }: { lang: Lang }) {
       <main id="main" className="page">
         <div className="wrap">
           <h1>{research.title[lang]}</h1>
-          <p className="page__lead">{research.lead[lang]}</p>
 
           <section className="current">
             <h2>{research.current.heading[lang]}</h2>
-            <p className="meta">{research.current.meta[lang]}</p>
             <p>{research.current.body[lang]}</p>
-            <ul className="plain-list">
-              {research.current.points.map((point) => <li key={point.en}>{point[lang]}</li>)}
-            </ul>
           </section>
 
           <section>
@@ -23,10 +18,13 @@ export function Research({ lang }: { lang: Lang }) {
             <ol className="publications">
               {research.publications.map((paper) => (
                 <li key={paper.title.en}>
-                  <h3>{paper.title[lang]}</h3>
-                  <p>{paper.authors[lang]}</p>
-                  <p className="publications__venue">{paper.venue[lang]}</p>
-                  <p className="meta">{research.roleLabel[lang]}: {paper.role[lang]}</p>
+                  <p className="publications__date">{paper.date[lang]}</p>
+                  <div>
+                    <h3>{paper.title[lang]}</h3>
+                    <p>{paper.authors[lang]}</p>
+                    <p className="publications__venue">{paper.venue[lang]}</p>
+                    <p className="meta">{research.roleLabel[lang]}: {paper.role[lang]}</p>
+                  </div>
                 </li>
               ))}
             </ol>
