@@ -15,7 +15,6 @@ export const profile = {
   positions: [
     { role: { en: 'Undergraduate Student', ko: '학부생' }, org: { en: 'Computer Science, Yonsei University', ko: '연세대학교 컴퓨터과학과' } },
     { role: { en: 'Research Intern', ko: '연구 인턴' }, org: { en: 'Edge AI Lab (Prof. Dong-Jun Han)', ko: 'Edge AI Lab (지도교수 한동준)' } },
-    { role: { en: 'Team Lead', ko: '팀장' }, org: { en: 'AI Health Guardian (YAI × Liner)', ko: 'AI 건강지킴이 (YAI × Liner)' } },
     { role: { en: 'Member', ko: '회원' }, org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' } },
   ] as { role: Text; org: Text }[],
   greeting: {
@@ -27,8 +26,8 @@ export const profile = {
         ko: '연세대학교 컴퓨터과학과 학부생 현진명입니다. AI가 무엇을 기억하고, 잊고, 믿을 수 있는지에 관심을 두고, 현재 Edge AI Lab에서 한동준 교수님 지도 아래 LLM Continual Unlearning을 연구하고 있습니다.',
       },
       {
-        en: 'I also lead [AI Health Guardian], a KakaoTalk service that helps older adults check the health information they receive.',
-        ko: '또한 어르신이 받은 건강정보를 확인하도록 돕는 카카오톡 서비스 [AI 건강지킴이]를 이끌고 있습니다.',
+        en: 'I also led [AI Health Guardian], a KakaoTalk service that helps older adults check the health information they receive.',
+        ko: '또한 어르신이 받은 건강정보를 확인하도록 돕는 카카오톡 서비스 [AI 건강지킴이]를 이끌었습니다.',
       },
     ] as Text[],
   },
@@ -70,7 +69,7 @@ export const experience: Experience[] = [
     },
   },
   {
-    period: { en: 'Jul 2026 – Present', ko: '2026.07 – 현재' },
+    period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
     role: { en: 'Team Lead', ko: '팀장' },
     org: { en: 'AI Health Guardian, YAI × Liner', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
     note: {
@@ -217,7 +216,7 @@ export type Project = {
 export const featured: Project = {
   slug: 'ai-health-guardian',
   title: { en: 'AI Health Guardian', ko: 'AI 건강지킴이' },
-  period: { en: 'Jul 2026 – Present', ko: '2026.07 – 현재' },
+  period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
   summary: {
     en: 'A KakaoTalk service for older adults. Share a health claim, and it checks academic papers and Korean food-safety data, then answers with a four-level traffic light.',
     ko: '어르신이 받은 건강정보를 카카오톡으로 공유하면 논문과 식약처 데이터를 확인해 4단계 신호등으로 알려 주는 서비스입니다.',
@@ -350,8 +349,8 @@ export const caseStudy = {
     { en: 'Won the Chairperson’s Award at the Gyeonggi Volunteer Center Ideathon, placing 7th of 15 finalists from 101 teams.', ko: '101팀이 참가한 경기도자원봉사센터 아이디어톤에서 본선 7위로 이사장상을 받았습니다.' },
   ] as Text[],
   status: {
-    en: 'The project is still running, so final usage numbers will be added when the program ends.',
-    ko: '프로젝트가 진행 중이므로 최종 사용 수치는 프로그램이 끝난 뒤 추가합니다.',
+    en: 'Contest schedule through Nov 10, 2026; YAICON through Nov 25, 2026. Final numbers and results will be added once confirmed.',
+    ko: '공모전 일정은 2026.11.10, YAICON은 2026.11.25까지입니다. 최종 수치와 결과는 확정되는 대로 추가합니다.',
   } as Text,
   stackHeading: { en: 'Built with', ko: '사용 기술' } as Text,
   stack: {
