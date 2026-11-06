@@ -22,7 +22,7 @@ export function Resume({ lang }: { lang: Lang }) {
           </a>
         </div>
       </main>
-      <Footer lang={lang} from="var(--foam)" />
+      <Footer lang={lang} />
     </>
   );
 }

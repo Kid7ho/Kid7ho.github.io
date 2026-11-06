@@ -46,7 +46,7 @@ export function Research({ lang }: { lang: Lang }) {
           </section>
         </div>
       </main>
-      <Footer lang={lang} from="var(--foam)" />
+      <Footer lang={lang} />
     </>
   );
 }

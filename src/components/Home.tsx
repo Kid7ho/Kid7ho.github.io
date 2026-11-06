@@ -97,7 +97,7 @@ export function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
       </main>
-      <Footer lang={lang} from="var(--ocean)" />
+      <Footer lang={lang} tone="ocean" />
     </>
   );
 }

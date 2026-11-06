@@ -57,7 +57,7 @@ export function CaseStudy({ lang }: { lang: Lang }) {
           </section>
         </div>
       </main>
-      <Footer lang={lang} from="var(--foam)" />
+      <Footer lang={lang} />
     </>
   );
 }

@@ -76,7 +76,7 @@ export function ProjectPost({ slug, lang }: { slug: string; lang: Lang }) {
           {slug === 'unity-games' ? <GameList lang={lang} /> : null}
         </div>
       </main>
-      <Footer lang={lang} from="var(--foam)" />
+      <Footer lang={lang} />
     </>
   );
 }

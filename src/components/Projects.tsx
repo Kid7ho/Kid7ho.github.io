@@ -65,7 +65,7 @@ export function Projects({ lang }: { lang: Lang }) {
           </div>
         </section>
       </main>
-      <Footer lang={lang} from="var(--foam)" />
+      <Footer lang={lang} />
     </>
   );
 }
