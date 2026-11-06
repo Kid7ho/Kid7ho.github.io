@@ -30,6 +30,10 @@ export const profile = {
         en: 'I also led [AI Health Guardian], a KakaoTalk service that helps older adults check the health information they receive.',
         ko: '또한 어르신이 받은 건강정보를 확인하도록 돕는 카카오톡 서비스 [AI 건강지킴이]를 이끌었습니다.',
       },
+      {
+        en: 'My interest in AI began with AlphaGo. In 2020, as a high school student, I wrote a short paper analyzing its algorithms and built a small machine learning web app with Teachable Machine.',
+        ko: 'AI에 관심을 갖게 된 계기는 알파고였습니다. 2020년 고등학생 때 알파고의 알고리즘을 분석하는 소논문을 쓰고, Teachable Machine으로 작은 머신러닝 웹 서비스를 만들어 보았습니다.',
+      },
     ] as Text[],
   },
 };

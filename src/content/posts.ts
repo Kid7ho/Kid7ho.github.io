@@ -77,8 +77,8 @@ export const games: Game[] = [
     title: { en: 'Hexavity', ko: 'Hexavity' },
     period: { en: '2020', ko: '2020' },
     summary: {
-      en: 'A gravity platformer from high school, entered in GIGDC.',
-      ko: '고등학교 때 만든 중력 플랫폼 게임으로, GIGDC에 출품했습니다.',
+      en: 'A six-stage platformer built around switching gravity in six directions. I worked on development in a four-person high school club team, and we entered it in GIGDC.',
+      ko: '중력을 여섯 방향으로 바꾸며 6개 스테이지를 지나는 플랫폼 게임입니다. 고등학교 동아리 4인 팀에서 개발을 맡았고, GIGDC에 출품했습니다.',
     },
     image: '/projects/unity-games/hexavity.jpg',
     links: play('hexavity'),
@@ -87,11 +87,14 @@ export const games: Game[] = [
     title: { en: 'Kinetic Wall Clock', ko: 'Kinetic Wall Clock' },
     period: { en: '2020', ko: '2020' },
     summary: {
-      en: 'Inspired by "A Million Times 120" by Humans since 1982: many clock hands move together to form the time and wave patterns.',
-      ko: 'Humans since 1982의 작품 "A Million Times 120"에서 영감을 받아, 여러 시계의 바늘이 함께 움직이며 시각과 물결 무늬를 만듭니다.',
+      en: 'A solo project inspired by ClockClock from Humans since 1982: many clock hands move together to form the time and wave patterns.',
+      ko: 'Humans since 1982의 작품 ClockClock에서 영감을 받은 개인 프로젝트로, 여러 시계의 바늘이 함께 움직이며 시각과 물결 무늬를 만듭니다.',
     },
     image: '/projects/unity-games/kinetic-wall-clock.jpg',
-    links: play('kinetic-wall-clock'),
+    links: [
+      ...play('kinetic-wall-clock'),
+      { label: { en: 'Demo video', ko: '시연 영상' }, href: 'https://youtu.be/0WA_0bPcAnc' },
+    ],
   },
   {
     title: { en: 'Flappy Bird', ko: 'Flappy Bird' },
@@ -107,8 +110,8 @@ export const games: Game[] = [
     title: { en: 'Tile Game', ko: 'Tile Game' },
     period: { en: '2019', ko: '2019' },
     summary: {
-      en: 'A 5x5 tile-flipping puzzle made with two classmates. I led the team and built the game, and we released it on Google Play.',
-      ko: '학우 2명과 만든 5x5 타일 뒤집기 퍼즐입니다. 팀장으로 구현을 맡아 Google Play에 출시했습니다.',
+      en: 'A 5x5 tile-flipping puzzle with 30 levels, made with two classmates. I led the team and built the game, and we released it on Google Play.',
+      ko: '학우 2명과 만든 30개 레벨의 5x5 타일 뒤집기 퍼즐입니다. 팀장으로 구현을 맡아 Google Play에 출시했습니다.',
     },
     image: '/projects/unity-games/tile-game.jpg',
     links: play('tile-game'),
