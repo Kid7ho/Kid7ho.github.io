@@ -86,7 +86,7 @@ export const experience: Experience[] = [
     org: { en: 'AI Health Guardian, YAI × Liner', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
     note: {
       en: 'Entered a contest with a service built on the Liner API, led its planning and development end to end, and took it to field volunteer sessions with older adults.',
-      ko: 'Liner API를 활용한 서비스로 공모전에 참가해 기획 및 개발 전체를 담당하고, 어르신 대상 현장 봉사까지 진행',
+      ko: 'Liner API를 활용한 서비스로 공모전에 참가해 기획 및 개발 전체를 담당, 최종적으로 어르신 대상 현장 봉사까지 진행',
     },
   },
   {
