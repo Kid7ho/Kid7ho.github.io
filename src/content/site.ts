@@ -80,13 +80,13 @@ export const experience: Experience[] = [
     },
   },
   {
-    logo: '/logos/yai.png',
+    logo: '/logos/liner.svg',
     period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
     role: { en: 'Team Lead', ko: '팀장' },
     org: { en: 'AI Health Guardian, YAI × Liner', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
     note: {
-      en: 'Planned and built the service on a five-person team, from the first idea to field sessions with older adults.',
-      ko: '5인 팀에서 서비스 기획과 개발 전체를 담당하고, 어르신 대상 현장 봉사까지 진행',
+      en: 'Entered a contest with a service built on the Liner API, led its planning and development end to end, and took it to field volunteer sessions with older adults.',
+      ko: 'Liner API를 활용한 서비스로 공모전에 참가해 기획 및 개발 전체를 담당하고, 어르신 대상 현장 봉사까지 진행',
     },
   },
   {
@@ -95,8 +95,8 @@ export const experience: Experience[] = [
     role: { en: 'Member, 17th cohort – Present', ko: '회원, 17기 – 현재' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
     note: {
-      en: 'Studied computer vision papers and joined industry and YAICON projects.',
-      ko: '컴퓨터비전 논문 스터디, 산학협력 및 YAICON 프로젝트 참여 중',
+      en: 'Joined AI paper studies, industry collaborations, and YAICON projects.',
+      ko: '인공지능 논문 스터디, 산학협력 및 YAICON 프로젝트 참여',
     },
   },
   {
