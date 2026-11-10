@@ -8,8 +8,8 @@ export const profile = {
   email: 'jinmyoung.hyun@gmail.com',
   github: 'https://github.com/Kid7ho',
   // Add the LinkedIn URL once the account exists.
-  linkedin: 'https://www.linkedin.com/in/%EC%A7%84%EB%AA%85-%ED%98%84-83b313424/',
-  linkedinLabel: 'linkedin.com/in/진명-현-83b313424' as string | null,
+  linkedin: 'https://www.linkedin.com/in/imjimmy03/',
+  linkedinLabel: 'linkedin.com/in/imjimmy03' as string | null,
   // Put the image in public/ and set the path, for example '/profile.jpg'.
   photo: '/profile.jpg' as string | null,
   monogram: 'JM',
@@ -23,8 +23,8 @@ export const profile = {
     // Text in [brackets] links to the AI Health Guardian case study.
     paragraphs: [
       {
-        en: 'I’m Jin Myoung Hyun, a computer science undergraduate at Yonsei University. I’m interested in how AI systems remember, forget, and earn trust, and I’m currently working on LLM Continual Unlearning at Edge AI Lab, advised by Prof. Dong-Jun Han.',
-        ko: '연세대학교 컴퓨터과학과 학부생 현진명입니다. AI가 무엇을 기억하고, 잊고, 믿을 수 있는지에 관심을 두고, 현재 Edge AI Lab에서 한동준 교수님 지도 아래 LLM Continual Unlearning을 연구하고 있습니다.',
+        en: 'I’m Jin Myoung Hyun, a computer science undergraduate at Yonsei University. I’m interested in how AI systems remember, forget, and earn trust, and I’m currently studying LLM Continual Unlearning at Edge AI Lab, advised by Prof. Dong-Jun Han.',
+        ko: '연세대학교 컴퓨터과학과 학부생 현진명입니다. AI가 무엇을 기억하고, 잊고, 믿을 수 있는지에 관심을 두고, 현재 Edge AI Lab에서 한동준 교수님 지도 아래 LLM Continual Unlearning을 공부하고 있습니다.',
       },
       {
         en: 'I also led [AI Health Guardian], a KakaoTalk service that helps older adults check the health information they receive.',
@@ -75,15 +75,15 @@ export const experience: Experience[] = [
     role: { en: 'Undergraduate Researcher', ko: '학부 연구생' },
     org: { en: 'Edge AI Lab, Yonsei University', ko: '연세대학교 Edge AI Lab' },
     note: {
-      en: 'Leading implementation and experiments on LLM Continual Unlearning with Prof. Dong-Jun Han.',
-      ko: '한동준 교수님 지도 아래 LLM Continual Unlearning 구현 및 실험 주도',
+      en: 'Studying LLM Continual Unlearning with Prof. Dong-Jun Han.',
+      ko: '한동준 교수님 지도 아래 LLM Continual Unlearning 공부 중',
     },
   },
   {
     logo: '/logos/liner.svg',
     period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
     role: { en: 'Team Lead', ko: '팀장' },
-    org: { en: 'AI Health Guardian, YAI × Liner', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
+    org: { en: 'AI Health Guardian, YAI × Liner Industry-University Cooperation', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
     note: {
       en: 'Entered a contest with a service built on the Liner API, led its planning and development end to end, and took it to field volunteer sessions with older adults.',
       ko: 'Liner API를 활용한 서비스로 공모전에 참가해 기획 및 개발 전체를 담당, 최종적으로 어르신 대상 현장 봉사까지 진행',
