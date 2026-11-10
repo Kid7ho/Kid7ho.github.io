@@ -76,7 +76,7 @@ export const experience: Experience[] = [
     org: { en: 'Edge AI Lab, Yonsei University', ko: '연세대학교 Edge AI Lab' },
     note: {
       en: 'Leading implementation and experiments on LLM Continual Unlearning with Prof. Dong-Jun Han.',
-      ko: '한동준 교수님 지도 아래 LLM Continual Unlearning의 구현과 실험을 주도하고 있습니다.',
+      ko: '한동준 교수님 지도 아래 LLM Continual Unlearning 구현 및 실험 주도',
     },
   },
   {
@@ -86,7 +86,7 @@ export const experience: Experience[] = [
     org: { en: 'AI Health Guardian, YAI × Liner', ko: 'AI 건강지킴이, YAI × Liner 산학협력' },
     note: {
       en: 'Planned and built the service on a five-person team, from the first idea to field sessions with older adults.',
-      ko: '5인 팀에서 서비스 기획과 개발 전체를 맡아 어르신 대상 현장 봉사까지 진행했습니다.',
+      ko: '5인 팀에서 서비스 기획과 개발 전체를 담당하고, 어르신 대상 현장 봉사까지 진행',
     },
   },
   {
@@ -96,7 +96,7 @@ export const experience: Experience[] = [
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
     note: {
       en: 'Studied computer vision papers and joined industry and YAICON projects.',
-      ko: '컴퓨터비전 논문을 공부하고 산학협력과 YAICON 프로젝트에 참여하고 있습니다.',
+      ko: '컴퓨터비전 논문 스터디, 산학협력 및 YAICON 프로젝트 참여 중',
     },
   },
   {
@@ -113,7 +113,7 @@ export const experience: Experience[] = [
     org: { en: 'DLI Lab, Yonsei University', ko: '연세대학교 DLI Lab' },
     note: {
       en: 'Studied NLP through Stanford CS224N and paper reviews with Prof. Jinyoung Yeo’s lab.',
-      ko: '여진영 교수님 연구실에서 Stanford CS224N 기반 NLP 스터디와 논문 리뷰를 진행했습니다.',
+      ko: '여진영 교수님 연구실에서 Stanford CS224N 기반 NLP 스터디 및 논문 리뷰 진행',
     },
   },
   {
