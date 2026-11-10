@@ -64,7 +64,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    logo: '/logos/yai.png',
+    logo: '/logos/yai-logo.jpeg',
     period: { en: 'Jan 2027 – Jun 2027 (incoming)', ko: '2027.01 – 2027.06 (예정)' },
     role: { en: 'Vice President, 19th cohort', ko: '19기 운영부장 (부회장)' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
@@ -90,7 +90,7 @@ export const experience: Experience[] = [
     },
   },
   {
-    logo: '/logos/yai.png',
+    logo: '/logos/yai-logo.jpeg',
     period: { en: 'Jan 2026 – Present', ko: '2026.01 – 현재' },
     role: { en: 'Member, 17th cohort – Present', ko: '회원, 17기 – 현재' },
     org: { en: 'YAI, Yonsei University AI Society', ko: 'YAI 연세대학교 인공지능 학회' },
