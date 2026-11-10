@@ -132,12 +132,12 @@ export const awards: { date: Text; title: Text; note: Text }[] = [
   {
     date: { en: 'Sep 2026', ko: '2026.09' },
     title: {
-      en: 'Chairperson’s Award, Gyeonggi Volunteer Center Ideathon',
-      ko: '경기도자원봉사센터이사장상, 2026 자원봉사 아이디어톤',
+      en: 'Gyeonggi Volunteer Center Ideathon 2026: Chairperson’s Award',
+      ko: '2026 자원봉사 아이디어톤: 경기도자원봉사센터이사장상',
     },
     note: {
-      en: 'Team lead. 7th of 15 finalists from 101 teams.',
-      ko: '팀장. 101팀 중 본선 15팀에 진출해 7위',
+      en: 'Team lead',
+      ko: '팀장 역할',
     },
   },
 ];
@@ -396,7 +396,7 @@ export const caseStudy = {
     { en: 'Paper stance classification reached 89% accuracy on 383 pairs.', ko: '논문 입장 분류는 383쌍에서 정확도 89%를 기록했습니다.' },
     { en: 'A neurology professor reviewed 20 cases and found the verdicts broadly appropriate.', ko: '신경과 교수의 사례 20건 의료 자문에서 판정 체계가 전반적으로 적절하다는 의견을 받았습니다.' },
     { en: 'At the first volunteer session, 20 of 34 surveyed older adults said they would use the service.', ko: '첫 현장 봉사에서 설문한 어르신 34명 중 20명이 사용 의향을 밝혔습니다.' },
-    { en: 'Won the Chairperson’s Award at the Gyeonggi Volunteer Center Ideathon, placing 7th of 15 finalists from 101 teams.', ko: '101팀이 참가한 경기도자원봉사센터 아이디어톤에서 본선 7위로 이사장상을 받았습니다.' },
+    { en: 'Won the Chairperson’s Award at the Gyeonggi Volunteer Center Ideathon 2026.', ko: '2026 자원봉사 아이디어톤에서 경기도자원봉사센터이사장상을 받았습니다.' },
   ] as Text[],
   status: {
     en: 'Contest schedule through Nov 10, 2026; YAICON through Nov 25, 2026. Final numbers and results will be added once confirmed.',
