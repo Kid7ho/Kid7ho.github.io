@@ -140,6 +140,14 @@ export const awards: { date: Text; title: Text; note: Text }[] = [
       ko: '팀장 역할',
     },
   },
+  {
+    date: { en: 'Spring 2026', ko: '2026-1학기' },
+    title: {
+      en: 'Yonsei University Spring 2026 Academic Excellence Award',
+      ko: '연세대학교 2026-1학기 학업성적 우수상',
+    },
+    note: { en: '', ko: '' },
+  },
 ];
 
 export type Publication = {
