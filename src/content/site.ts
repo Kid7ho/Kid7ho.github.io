@@ -398,17 +398,17 @@ export const caseStudy = {
     en: 'I led the five-person team and did all of the planning and development myself. Teammates supported the volunteer sessions and the final presentation at the ideathon.',
     ko: '5인 팀을 이끌며 서비스 기획과 개발을 모두 직접 진행했습니다. 팀원들은 봉사 진행과 공모전 본선 발표 등을 도왔습니다.',
   } as Text,
-  resultsHeading: { en: 'Results so far', ko: '현재까지의 결과' } as Text,
+  resultsHeading: { en: 'Results', ko: '결과' } as Text,
   results: [
     { en: 'Key-claim recall rose from 40% to about 80% on 45 real links after adding an LLM extractor.', ko: 'LLM 주장 추출을 도입해 실제 링크 45건에서 핵심 주장 재현율을 40%에서 약 80%로 높였습니다.' },
     { en: 'Paper stance classification reached 89% accuracy on 383 pairs.', ko: '논문 입장 분류는 383쌍에서 정확도 89%를 기록했습니다.' },
     { en: 'A neurology professor reviewed 20 cases and found the verdicts broadly appropriate.', ko: '신경과 교수의 사례 20건 의료 자문에서 판정 체계가 전반적으로 적절하다는 의견을 받았습니다.' },
-    { en: 'At the first volunteer session, 20 of 34 surveyed older adults said they would use the service.', ko: '첫 현장 봉사에서 설문한 어르신 34명 중 20명이 사용 의향을 밝혔습니다.' },
+    { en: 'Across two volunteer sessions at senior welfare centers in Goyang, the second at Goyang Senior Welfare Center on Nov 6, 23 of 46 surveyed older adults said they would use the service.', ko: '고양시 복지관에서 두 차례 현장 봉사를 진행했고(2차는 11.6 고양시노인종합복지관), 설문한 어르신 46명 중 23명이 사용 의향을 밝혔습니다.' },
     { en: 'Won the Chairperson’s Award at the Gyeonggi Volunteer Center Ideathon 2026.', ko: '2026 자원봉사 아이디어톤에서 경기도자원봉사센터이사장상을 받았습니다.' },
   ] as Text[],
   status: {
-    en: 'Contest schedule through Nov 10, 2026; YAICON through Nov 25, 2026. Final numbers and results will be added once confirmed.',
-    ko: '공모전 일정은 2026.11.10, YAICON은 2026.11.25까지입니다. 최종 수치와 결과는 확정되는 대로 추가합니다.',
+    en: 'Completed in November 2026. Results were shared at the Gyeonggi Volunteer Center results-sharing session on Nov 10. The KakaoTalk channel remains open.',
+    ko: '2026.11에 종료했고, 11.10 경기도자원봉사센터 성과공유회에서 결과를 공유했습니다. 카카오톡 채널은 계속 열어 두었습니다.',
   } as Text,
   stackHeading: { en: 'Built with', ko: '사용 기술' } as Text,
   stack: {
