@@ -395,8 +395,8 @@ export const caseStudy = {
   ],
   roleHeading: { en: 'My role', ko: '맡은 일' } as Text,
   role: {
-    en: 'I led the five-person team and did all of the planning and development myself. Teammates supported the volunteer sessions and the final presentation at the ideathon.',
-    ko: '5인 팀을 이끌며 서비스 기획과 개발을 모두 직접 진행했습니다. 팀원들은 봉사 진행과 공모전 본선 발표 등을 도왔습니다.',
+    en: 'I led the five-person team and did all of the planning and development myself. Teammates supported the volunteer sessions and the final presentation at the ideathon. The project was carried out as part of the AX Industry-University Cooperation Project (AXP) run by Yonsei University’s AI-Centered University Program.',
+    ko: '5인 팀을 이끌며 서비스 기획과 개발을 모두 직접 진행했습니다. 팀원들은 봉사 진행과 공모전 본선 발표 등을 도왔습니다. 이 프로젝트는 연세대학교 AI중심대학사업단의 AX 산학협력 프로젝트(AXP)로 수행했습니다.',
   } as Text,
   resultsHeading: { en: 'Results', ko: '결과' } as Text,
   results: [
