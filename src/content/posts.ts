@@ -281,14 +281,19 @@ export const posts: Post[] = [
         figures: [
           {
             src: '/projects/real-fit/body-measurement.jpg',
-            alt: { en: '3D body mesh from SHAPY next to the extracted measurements', ko: 'SHAPY로 만든 3D 인체 메시와 추출한 신체 치수' },
-            caption: { en: 'A reconstructed 3D mesh and the measurements taken from it (height 1.65 m, chest 0.84 m, waist 0.74 m, hips 0.91 m).', ko: '복원한 3D 메시와 메시에서 잰 치수입니다(키 1.65m, 가슴 0.84m, 허리 0.74m, 엉덩이 0.91m).' },
+            alt: { en: 'Input photo, the 3D body mesh from SHAPY, and the extracted measurements', ko: '입력 사진, SHAPY로 만든 3D 인체 메시, 추출한 신체 치수' },
+            caption: { en: 'From left: the input photo, the reconstructed 3D mesh, and the measurements taken from it (height 1.65 m, chest 0.84 m, waist 0.74 m, hips 0.91 m).', ko: '왼쪽부터 입력 사진, 복원한 3D 메시, 메시에서 잰 치수입니다(키 1.65m, 가슴 0.84m, 허리 0.74m, 엉덩이 0.91m).' },
+          },
+          {
+            src: '/projects/real-fit/shapy-paper.jpg',
+            alt: { en: 'Architecture figure from the paper A Focused Human Body Model for Accurate Anthropometric Measurements Extraction', ko: 'A Focused Human Body Model for Accurate Anthropometric Measurements Extraction 논문의 구조도' },
+            caption: { en: 'The body-measurement model we referred to: Chen et al., "A Focused Human Body Model for Accurate Anthropometric Measurements Extraction."', ko: '신체 측정에 참고한 모델의 구조도입니다(Chen et al., "A Focused Human Body Model for Accurate Anthropometric Measurements Extraction").' },
           },
         ],
       },
       {
         heading: { en: 'Fit classification', ko: '핏 분류' },
-        body: [{ en: 'Fit_classifier takes the user\'s height and weight, the product\'s chest width per size, and review keywords such as "runs large". It computes ease (chest width minus estimated chest), checks reviews from buyers with similar bodies, then takes a majority vote with a confidence score to return slim, regular, or loose.', ko: 'fit_classifier는 사용자의 키와 몸무게, 제품의 사이즈별 가슴단면, "크게 나와요" 같은 리뷰 키워드를 입력받습니다. 가슴단면에서 추정 가슴둘레를 뺀 여유분을 계산하고, 체형이 비슷한 리뷰어의 후기로 보완한 뒤, 다수결과 신뢰도로 slim, regular, loose를 정합니다.' }],
+        body: [{ en: 'fit_classifier takes the user\'s height and weight, the product\'s chest width per size, and review keywords such as "runs large". It computes ease (chest width minus estimated chest), checks reviews from buyers with similar bodies, then takes a majority vote with a confidence score to return slim, regular, or loose.', ko: 'fit_classifier는 사용자의 키와 몸무게, 제품의 사이즈별 가슴단면, "크게 나와요" 같은 리뷰 키워드를 입력받습니다. 가슴단면에서 추정 가슴둘레를 뺀 여유분을 계산하고, 체형이 비슷한 리뷰어의 후기로 보완한 뒤, 다수결과 신뢰도로 slim, regular, loose를 정합니다.' }],
         columns: 1,
         figures: [
           {
@@ -324,6 +329,21 @@ export const posts: Post[] = [
         ],
         columns: 2,
         figures: [
+          {
+            src: '/projects/real-fit/crawl-products.jpg',
+            alt: { en: 'Slide on crawling size measurements and buyer ratings into products.csv', ko: '사이즈별 상세 수치와 구매자 평가를 products.csv로 크롤링한 슬라이드' },
+            caption: { en: 'Product data: measurements per size and buyer ratings, saved to products.csv.', ko: '의류 데이터: 사이즈별 상세 수치와 구매자 평가를 products.csv에 저장했습니다.' },
+          },
+          {
+            src: '/projects/real-fit/crawl-reviews.jpg',
+            alt: { en: 'Slide on crawling review photos and text into reviews.csv', ko: '후기 사진과 텍스트를 reviews.csv로 크롤링한 슬라이드' },
+            caption: { en: 'Review data: each review\'s photos and text, saved to reviews.csv (6,858 reviews, 9,297 images).', ko: '후기 데이터: 후기마다 사진과 텍스트를 reviews.csv에 저장했습니다(리뷰 6,858건, 이미지 9,297장).' },
+          },
+          {
+            src: '/projects/real-fit/crawl-targets.jpg',
+            alt: { en: 'Musinsa category list, product pages, and slim-fit search results used for crawling', ko: '크롤링에 쓴 무신사 카테고리 목록, 상품 페이지, slim 키워드 검색 결과' },
+            caption: { en: 'Crawling targets: T-shirt categories sorted by review count, plus slim-fit keyword searches.', ko: '크롤링 대상: 후기순으로 정렬한 티셔츠 카테고리와 slim 키워드 검색 결과입니다.' },
+          },
           {
             src: '/projects/real-fit/height-weight.jpg',
             alt: { en: 'Scatter plot of height and weight from 6,000 reviews', ko: '리뷰 6,000건의 키와 몸무게 산점도' },
