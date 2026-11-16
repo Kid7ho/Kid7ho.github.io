@@ -293,14 +293,14 @@ export const projects: Project[] = [
     title: { en: 'Real Fit Recommendation System', ko: 'Real Fit Recommendation System' },
     period: { en: 'Apr 2026 – Jun 2026', ko: '2026.04 – 2026.06' },
     summary: {
-      en: 'One photo, height, and weight are enough to estimate your body, recommend a size, and show a virtual try-on that reflects the fit. Made at the 8th YAICON.',
-      ko: '사진 한 장과 키, 체중으로 체형을 추정해 사이즈를 추천하고, 실제 핏을 반영한 가상 피팅을 보여 줍니다. 제8회 YAICON에서 진행했습니다.',
+      en: 'Measures the body from one photo, height, and weight, predicts whether a garment fits slim, regular, or loose, and aims for a virtual try-on that reflects that fit. Made at the 8th YAICON.',
+      ko: '사진 한 장과 키, 체중으로 신체 치수를 재고 옷의 핏(slim, regular, loose)을 예측해, 그 핏을 반영한 가상 피팅을 목표로 했습니다. 제8회 YAICON에서 진행했습니다.',
     },
     role: {
       en: 'Built the pipeline and crawled Musinsa data on a six-person team: 6,858 reviews and 9,297 images',
       ko: '6인 팀에서 파이프라인 구축과 무신사 데이터 크롤링 담당: 리뷰 6,858건, 이미지 9,297장',
     },
-    stack: 'Python, CatVTON, FLUX, SHAPY, Web Crawling',
+    stack: 'Python, SHAPY, CatVTON, FLUX, Web Crawling',
     links: [{ label: { en: 'YAICON post', ko: 'YAICON 소개 게시물' }, href: 'https://www.instagram.com/p/Daj8mwtmJuM/' }],
   },
   {

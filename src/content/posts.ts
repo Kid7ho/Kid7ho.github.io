@@ -244,8 +244,8 @@ export const posts: Post[] = [
   {
     slug: 'real-fit',
     lead: {
-      en: 'Start from one full-body photo, your height, and your weight. RFRS estimates your body, recommends a size, and shows a try-on image that reflects how it fits. Made by a six-person team at the 8th YAICON.',
-      ko: '전신사진 한 장과 키, 체중만 입력하면 체형을 추정해 사이즈를 추천하고, 실제 핏을 반영한 가상 피팅 이미지를 보여 줍니다. 제8회 YAICON에서 6인 팀이 만들었습니다.',
+      en: 'From one full-body photo, height, and weight, RFRS measures the body, predicts how a garment will fit (slim, regular, or loose), and aims to show a try-on image that reflects that fit. Made by a six-person team at the 8th YAICON.',
+      ko: '전신사진 한 장과 키, 체중으로 신체 치수를 재고, 옷이 slim, regular, loose 중 어떻게 맞을지 예측해, 그 핏을 반영한 가상 피팅 이미지를 보여 주는 것을 목표로 했습니다. 제8회 YAICON에서 6인 팀이 만들었습니다.',
     },
     sections: [
       {
@@ -261,16 +261,16 @@ export const posts: Post[] = [
         heading: { en: 'How it works', ko: '작동 방식' },
         list: [
           {
-            en: 'Body measurement: SHAPY and SMPL-X rebuild a 3D body from a single RGB image, then chest, waist, hips, and height are calculated from the mesh.',
-            ko: '신체 측정: SHAPY와 SMPL-X로 RGB 이미지 한 장에서 3D 인체를 복원하고, 생성된 메시에서 가슴, 허리, 엉덩이, 키 등의 치수를 계산합니다.',
+            en: 'Body measurement: SHAPY estimates SMPL-X shape and pose from a single RGB image, and chest, waist, hips, and height are measured on the 3D mesh. Measuring the 3D body instead of 2D pixels keeps the numbers stable when the pose changes.',
+            ko: '신체 측정: SHAPY로 RGB 이미지 한 장에서 SMPL-X 체형과 자세를 추정하고, 3D 메시 위에서 가슴, 허리, 엉덩이 둘레와 키를 잽니다. 2D 픽셀이 아닌 3D 구조로 재기 때문에 자세가 바뀌어도 치수가 안정적입니다.',
           },
           {
-            en: 'Fit classification: a fit classifier combines the body, the product size chart, and review text to label the fit as slim, regular, or loose.',
-            ko: '핏 분류: 신체 정보, 제품 사이즈, 리뷰 텍스트를 함께 보고 slim, regular, loose 중 하나의 핏으로 분류합니다.',
+            en: 'Fit classification: fit_classifier takes the user\'s height and weight, the product\'s chest width per size, and review keywords such as "runs large". It computes ease (chest width minus estimated chest), checks reviews from buyers with similar bodies, then takes a majority vote with a confidence score to return slim, regular, or loose.',
+            ko: '핏 분류: fit_classifier는 사용자의 키와 몸무게, 제품의 사이즈별 가슴단면, "크게 나와요" 같은 리뷰 키워드를 입력받습니다. 가슴단면에서 추정 가슴둘레를 뺀 여유분을 계산하고, 체형이 비슷한 리뷰어의 후기로 보완한 뒤, 다수결과 신뢰도로 slim, regular, loose를 정합니다.',
           },
           {
-            en: 'Virtual try-on: the fit label conditions CatVTON through a Fit-Aware Layout Generator and a Multi-Scale Fit Injector, and a FLUX denoising loop generates the image.',
-            ko: '가상 피팅: 핏 라벨을 Fit-Aware Layout Generator와 Multi-Scale Fit Injector를 통해 CatVTON에 조건으로 넣고, FLUX 디노이징으로 이미지를 생성합니다.',
+            en: 'Virtual try-on: a garment-agnostic preprocessor (rectangular mask and DensePose) feeds a Fit-Aware Layout Generator, a Stable Diffusion 1.5 UNet conditioned on the fit label through FiLM (AdaLN). Its layout features were meant to reach a frozen CatVTON (FLUX) model through a Multi-Scale Fit Injector attached to four FLUX blocks.',
+            ko: '가상 피팅: 사각형 마스크와 DensePose로 옷 정보를 지운 입력을 만들고, Fit-Aware Layout Generator(Stable Diffusion 1.5 UNet)에 핏 라벨을 FiLM(AdaLN)으로 조건화합니다. 이렇게 만든 레이아웃 특징을 Multi-Scale Fit Injector로 고정된 CatVTON(FLUX)의 4개 블록에 주입하는 구조입니다.',
           },
         ],
       },
@@ -278,8 +278,12 @@ export const posts: Post[] = [
         heading: { en: 'Data', ko: '데이터' },
         body: [
           {
-            en: 'We crawled Musinsa for top garments and buyer reviews: 6,858 reviews and 9,297 images in total. The training set came to 7,621 pairs (992 slim, 4,429 regular, 2,200 loose), labeled from official Musinsa fit data rather than by hand-written rules.',
-            ko: '무신사에서 상의 데이터와 실구매자 리뷰를 크롤링해 리뷰 6,858건, 이미지 9,297장을 모았습니다. 학습 데이터는 7,621쌍(slim 992건, regular 4,429건, loose 2,200건)이며, 핏 라벨은 경험식이 아닌 무신사 공식 핏 데이터를 기반으로 했습니다.',
+            en: 'We crawled Musinsa tops only (long- and short-sleeve T-shirts) to keep training efficient, taking the most-reviewed items in each category and adding slim-fit keywords such as tight, muscle fit, and cropped. For each item we saved the representative photo, measurements per size, and buyer ratings on size, color, thickness, and stretch, plus every review\'s photos and text: 6,858 reviews and 9,297 images in total.',
+            ko: '학습 효율을 위해 무신사 상의(긴소매·반소매 티셔츠)만 크롤링했고, 카테고리마다 후기가 많은 순으로 모은 뒤 슬림핏, 타이트, 머슬핏, 크롭, 스키니 키워드로 slim 데이터를 보강했습니다. 의류마다 대표 사진, 사이즈별 상세 수치, 사이즈·색감·두께감·신축성 평가를, 후기마다 사진과 텍스트를 저장해 리뷰 6,858건, 이미지 9,297장을 모았습니다.',
+          },
+          {
+            en: 'With snap data added, the fit training set came to 7,621 pairs (992 slim, 4,429 regular, 2,200 loose), labeled from official Musinsa fit data rather than by hand-written rules.',
+            ko: '여기에 스냅 데이터를 더해 핏 학습 데이터는 7,621쌍(slim 992건, regular 4,429건, loose 2,200건)이 되었고, 핏 라벨은 경험식이 아닌 무신사 공식 핏 데이터를 기반으로 했습니다.',
           },
         ],
         columns: 2,
@@ -295,11 +299,23 @@ export const posts: Post[] = [
         ],
       },
       {
-        heading: { en: 'Result', ko: '결과' },
-        body: [
+        heading: { en: 'Results', ko: '결과' },
+        list: [
           {
-            en: 'The demo starts with a photo, height, and weight. It estimates the body, recommends a size with a fit score, and generates a try-on image. The demo model was trained on 5,893 reviews and 120 garments with CatVTON and LoRA.',
-            ko: '데모는 사진, 키, 체중 입력으로 시작합니다. 체형을 자동으로 추정하고, 적합도와 함께 사이즈를 추천한 뒤, 가상 피팅 이미지를 생성합니다. 데모 모델은 리뷰 5,893개와 의류 120벌로 학습했습니다(CatVTON × LoRA).',
+            en: 'The CatVTON baseline (FLUX.1-Fill-dev) ran on an A5000 server at about 85 seconds per image.',
+            ko: 'CatVTON 베이스라인(FLUX.1-Fill-dev)을 A5000 서버에서 실제로 돌려 이미지 한 장에 약 85초가 걸리는 것을 확인했습니다.',
+          },
+          {
+            en: 'fit_classifier returns a personal fit for a product and a body in a single call.',
+            ko: 'fit_classifier는 제품과 신체 정보를 넣으면 한 번의 호출로 개인 핏을 돌려줍니다.',
+          },
+          {
+            en: 'Phase 1 trained the Fit-Aware Layout Generator on the 7,621 pairs (cross-entropy loss, A5000, batch 4, 20 epochs).',
+            ko: 'Phase 1에서 Fit-Aware Layout Generator를 7,621쌍으로 학습했습니다(cross-entropy loss, A5000, batch 4, 20 epochs).',
+          },
+          {
+            en: 'Phase 2, the Multi-Scale Fit Injector, was not finished: its gradients vanished during training, so the fit label does not yet change the try-on image.',
+            ko: 'Phase 2인 Multi-Scale Fit Injector는 학습 중 gradient가 소멸해 완성하지 못했습니다. 그래서 아직 핏 라벨이 가상 피팅 이미지에 반영되지는 않습니다.',
           },
         ],
       },
@@ -310,14 +326,6 @@ export const posts: Post[] = [
             en: 'I worked on building the pipeline and crawling the data.',
             ko: '파이프라인 구축과 데이터 크롤링을 맡았습니다.',
           },
-        ],
-      },
-      {
-        heading: { en: 'Next steps', ko: '다음 단계' },
-        list: [
-          { en: 'Extend try-on and size recommendation from tops to bottoms.', ko: '상의에서 하의까지 가상 피팅과 사이즈 추천을 확장합니다.' },
-          { en: 'Fine-tune CatVTON LoRA on measurement conditions to improve fit accuracy.', ko: '측정 조건부 CatVTON LoRA를 파인튜닝해 핏 정확도를 높입니다.' },
-          { en: 'Fully integrate precise body measurement with SMPL-X (Multi-HMR).', ko: 'SMPL-X(Multi-HMR) 기반의 정밀 체형 측정을 정식으로 통합합니다.' },
         ],
       },
     ],
