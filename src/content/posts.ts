@@ -258,19 +258,55 @@ export const posts: Post[] = [
         ],
       },
       {
-        heading: { en: 'How it works', ko: '작동 방식' },
-        list: [
+        heading: { en: 'Pipeline', ko: '파이프라인' },
+        body: [
           {
-            en: 'Body measurement: SHAPY estimates SMPL-X shape and pose from a single RGB image, and chest, waist, hips, and height are measured on the 3D mesh. Measuring the 3D body instead of 2D pixels keeps the numbers stable when the pose changes.',
-            ko: '신체 측정: SHAPY로 RGB 이미지 한 장에서 SMPL-X 체형과 자세를 추정하고, 3D 메시 위에서 가슴, 허리, 엉덩이 둘레와 키를 잽니다. 2D 픽셀이 아닌 3D 구조로 재기 때문에 자세가 바뀌어도 치수가 안정적입니다.',
+            en: 'Three inputs come from crawled Musinsa data and the user: a full-body photo, the garment image, and text reviews. The photo goes to SHAPY for body measurements, the garment image keeps its detail and texture, and the reviews yield a fit label and a size recommendation. All three feed the virtual try-on model.',
+            ko: '입력은 사용자 전신 사진, 의류 이미지, 텍스트 리뷰 세 가지이며, 학습 데이터는 무신사에서 크롤링했습니다. 사진은 SHAPY로 신체 치수를 재고, 의류 이미지는 디테일과 텍스처를 보존하며, 리뷰에서는 핏 라벨과 추천 사이즈를 뽑아 가상 피팅 모델에 함께 넣습니다.',
           },
+        ],
+        columns: 1,
+        figures: [
           {
-            en: 'Fit classification: fit_classifier takes the user\'s height and weight, the product\'s chest width per size, and review keywords such as "runs large". It computes ease (chest width minus estimated chest), checks reviews from buyers with similar bodies, then takes a majority vote with a confidence score to return slim, regular, or loose.',
-            ko: '핏 분류: fit_classifier는 사용자의 키와 몸무게, 제품의 사이즈별 가슴단면, "크게 나와요" 같은 리뷰 키워드를 입력받습니다. 가슴단면에서 추정 가슴둘레를 뺀 여유분을 계산하고, 체형이 비슷한 리뷰어의 후기로 보완한 뒤, 다수결과 신뢰도로 slim, regular, loose를 정합니다.',
+            src: '/projects/real-fit/pipeline.jpg',
+            alt: { en: 'Pipeline diagram from user photo, garment image, and reviews to the virtual try-on result', ko: '사용자 사진, 의류 이미지, 리뷰에서 가상 피팅 결과로 이어지는 파이프라인 구조도' },
+            caption: { en: 'The overall pipeline as designed for the final presentation.', ko: '최종 발표에서 설계한 전체 파이프라인입니다.' },
           },
+        ],
+      },
+      {
+        heading: { en: 'Body measurement', ko: '신체 측정' },
+        body: [{ en: 'SHAPY estimates SMPL-X shape and pose from a single RGB image, and chest, waist, hips, and height are measured on the 3D mesh. Measuring the 3D body instead of 2D pixels keeps the numbers stable when the pose changes.', ko: 'SHAPY로 RGB 이미지 한 장에서 SMPL-X 체형과 자세를 추정하고, 3D 메시 위에서 가슴, 허리, 엉덩이 둘레와 키를 잽니다. 2D 픽셀이 아닌 3D 구조로 재기 때문에 자세가 바뀌어도 치수가 안정적입니다.' }],
+        columns: 1,
+        figures: [
           {
-            en: 'Virtual try-on: a garment-agnostic preprocessor (rectangular mask and DensePose) feeds a Fit-Aware Layout Generator, a Stable Diffusion 1.5 UNet conditioned on the fit label through FiLM (AdaLN). Its layout features were meant to reach a frozen CatVTON (FLUX) model through a Multi-Scale Fit Injector attached to four FLUX blocks.',
-            ko: '가상 피팅: 사각형 마스크와 DensePose로 옷 정보를 지운 입력을 만들고, Fit-Aware Layout Generator(Stable Diffusion 1.5 UNet)에 핏 라벨을 FiLM(AdaLN)으로 조건화합니다. 이렇게 만든 레이아웃 특징을 Multi-Scale Fit Injector로 고정된 CatVTON(FLUX)의 4개 블록에 주입하는 구조입니다.',
+            src: '/projects/real-fit/body-measurement.jpg',
+            alt: { en: '3D body mesh from SHAPY next to the extracted measurements', ko: 'SHAPY로 만든 3D 인체 메시와 추출한 신체 치수' },
+            caption: { en: 'A reconstructed 3D mesh and the measurements taken from it (height 1.65 m, chest 0.84 m, waist 0.74 m, hips 0.91 m).', ko: '복원한 3D 메시와 메시에서 잰 치수입니다(키 1.65m, 가슴 0.84m, 허리 0.74m, 엉덩이 0.91m).' },
+          },
+        ],
+      },
+      {
+        heading: { en: 'Fit classification', ko: '핏 분류' },
+        body: [{ en: 'Fit_classifier takes the user\'s height and weight, the product\'s chest width per size, and review keywords such as "runs large". It computes ease (chest width minus estimated chest), checks reviews from buyers with similar bodies, then takes a majority vote with a confidence score to return slim, regular, or loose.', ko: 'fit_classifier는 사용자의 키와 몸무게, 제품의 사이즈별 가슴단면, "크게 나와요" 같은 리뷰 키워드를 입력받습니다. 가슴단면에서 추정 가슴둘레를 뺀 여유분을 계산하고, 체형이 비슷한 리뷰어의 후기로 보완한 뒤, 다수결과 신뢰도로 slim, regular, loose를 정합니다.' }],
+        columns: 1,
+        figures: [
+          {
+            src: '/projects/real-fit/fit-classifier.jpg',
+            alt: { en: 'fit_classifier diagram: user, product size, and review inputs, three stages, slim regular or loose output', ko: 'fit_classifier 구조도: 사용자, 제품 사이즈, 리뷰 입력과 3단계 처리, slim·regular·loose 출력' },
+            caption: { en: 'fit_classifier takes three inputs and returns a personal fit in three stages.', ko: 'fit_classifier는 세 가지 입력을 받아 3단계로 개인 핏을 정합니다.' },
+          },
+        ],
+      },
+      {
+        heading: { en: 'Virtual try-on structure', ko: '가상 피팅 구조' },
+        body: [{ en: 'A garment-agnostic preprocessor (rectangular mask and DensePose) feeds a Fit-Aware Layout Generator, a Stable Diffusion 1.5 UNet conditioned on the fit label through FiLM (AdaLN). Its layout features were meant to reach a frozen CatVTON (FLUX) model through a Multi-Scale Fit Injector attached to four FLUX blocks.', ko: '사각형 마스크와 DensePose로 옷 정보를 지운 입력을 만들고, Fit-Aware Layout Generator(Stable Diffusion 1.5 UNet)에 핏 라벨을 FiLM(AdaLN)으로 조건화합니다. 이렇게 만든 레이아웃 특징을 Multi-Scale Fit Injector로 고정된 CatVTON(FLUX)의 4개 블록에 주입하는 구조입니다.' }],
+        columns: 1,
+        figures: [
+          {
+            src: '/projects/real-fit/vton-architecture.jpg',
+            alt: { en: 'VTON architecture with Phase 1 and Phase 2 training targets; Phase 2 is marked as not implemented', ko: 'Phase 1과 Phase 2 학습 대상으로 나뉜 VTON 구조도, Phase 2는 구현 미완료로 표시' },
+            caption: { en: 'Phase 1 (preprocessor and layout generator) was trained; Phase 2 (fit injector, red box) was not completed.', ko: 'Phase 1(전처리와 레이아웃 생성기)은 학습했고, 빨간 상자의 Phase 2(핏 주입기)는 완성하지 못했습니다.' },
           },
         ],
       },
@@ -316,6 +352,14 @@ export const posts: Post[] = [
           {
             en: 'Phase 2, the Multi-Scale Fit Injector, was not finished: its gradients vanished during training, so the fit label does not yet change the try-on image.',
             ko: 'Phase 2인 Multi-Scale Fit Injector는 학습 중 gradient가 소멸해 완성하지 못했습니다. 그래서 아직 핏 라벨이 가상 피팅 이미지에 반영되지는 않습니다.',
+          },
+        ],
+        columns: 1,
+        figures: [
+          {
+            src: '/projects/real-fit/catvton-baseline.jpg',
+            alt: { en: 'CatVTON baseline: the input photo and two results wearing a Lee T-shirt and a graphic T-shirt', ko: 'CatVTON 베이스라인: 원본 사진과 Lee 티셔츠, 그래픽 티셔츠를 입힌 두 결과' },
+            caption: { en: 'CatVTON baseline. From left: the input, a Lee T-shirt, and a graphic T-shirt. The fit label is not applied yet.', ko: 'CatVTON 베이스라인 결과입니다. 왼쪽부터 원본, Lee 티셔츠, 그래픽 티셔츠이며, 아직 핏 라벨은 반영되지 않았습니다.' },
           },
         ],
       },
