@@ -21,7 +21,9 @@ type Island = { field: Field; x: number; y: number; count: number; align: 'start
 
 export function PaperMap({ lang }: { lang: Lang }) {
   const [active, setActive] = useState<string | null>(null);
-  const [focusField, setFocusField] = useState<Field | null>(null);
+  const [selected, setSelected] = useState<Field | 'all'>('all');
+  const [preview, setPreview] = useState<Field | null>(null);
+  const focusField = preview ?? (selected === 'all' ? null : selected);
   const lastPointer = useRef<string>('mouse');
   const hideTimer = useRef<number | undefined>(undefined);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -81,27 +83,6 @@ export function PaperMap({ lang }: { lang: Lang }) {
 
   return (
     <div className="paper-map-block">
-      <ul className="paper-legend" aria-label={study.legendLabel[lang]}>
-        {fieldOrder.map((field) => (
-          <li key={field}>
-            <button
-              type="button"
-              style={{ '--c': fieldColor[field] } as CSSProperties}
-              aria-pressed={focusField === field}
-              onMouseEnter={() => setFocusField(field)}
-              onMouseLeave={() => setFocusField(null)}
-              onFocus={() => setFocusField(field)}
-              onBlur={() => setFocusField(null)}
-              onClick={() => setFocusField((f) => (f === field ? null : field))}
-            >
-              <span className="paper-legend__dot" aria-hidden="true" />
-              {field}
-              <span className="paper-legend__count">{islands.find((i) => i.field === field)?.count}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-
       <div
         ref={mapRef}
         className="paper-map"
@@ -160,6 +141,56 @@ export function PaperMap({ lang }: { lang: Lang }) {
         ))}
 
         {current ? <PaperTip paper={current} touch={touch} /> : null}
+      </div>
+
+      <p className="study-hint">{study.hint[lang]}</p>
+
+      <div className="paper-fields" role="group" aria-label={study.legendLabel[lang]}>
+        <button
+          type="button"
+          className="paper-fields__all"
+          aria-pressed={selected === 'all'}
+          aria-controls="paper-list"
+          onClick={() => setSelected('all')}
+        >
+          {study.allLabel[lang]}
+          <span className="paper-fields__count">{papers.length}</span>
+        </button>
+        {fieldOrder.map((field) => (
+          <button
+            key={field}
+            type="button"
+            style={{ '--c': fieldColor[field] } as CSSProperties}
+            aria-pressed={selected === field}
+            aria-controls="paper-list"
+            onMouseEnter={() => setPreview(field)}
+            onMouseLeave={() => setPreview(null)}
+            onFocus={() => setPreview(field)}
+            onBlur={() => setPreview(null)}
+            onClick={() => setSelected(field)}
+          >
+            <span className="paper-fields__dot" aria-hidden="true" />
+            {field}
+            <span className="paper-fields__count">{islands.find((i) => i.field === field)?.count}</span>
+          </button>
+        ))}
+      </div>
+
+      <div id="paper-list" className="paper-list" aria-live="polite">
+        {(selected === 'all' ? fieldOrder : [selected]).map((field) => (
+          <section key={field} className="paper-list__group" style={{ '--c': fieldColor[field] } as CSSProperties}>
+            <h2>{field}</h2>
+            <ul>
+              {papers.filter((p) => p.fields[0] === field).map((p) => (
+                <li key={p.id}>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer">{p.title}</a>
+                  <p className="paper-list__venue">{p.venue}</p>
+                  <p className="paper-list__summary">{p.summary[lang]}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
     </div>
   );
