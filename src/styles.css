@@ -287,7 +287,14 @@ img, svg, iframe { display: block; max-width: 100%; }
 .page--study { padding-top: clamp(1.25rem, 3vw, 2rem); }
 .page h1.study-title { margin-bottom: 0.85rem; font-size: clamp(1.15rem, 2.2vw, 1.35rem); font-weight: 750; letter-spacing: -0.01em; }
 
-.paper-fields { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.paper-filter { display: grid; gap: 0.7rem; margin-top: 1.5rem; }
+.paper-fields { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.paper-fields--sub { position: relative; padding: 0.7rem 0.75rem; border-radius: 0.9rem; background: color-mix(in srgb, var(--ocean) 5%, #fff); border: 1px solid rgb(11 58 99 / 0.1); }
+.paper-fields--sub button { padding-block: 0.3rem; font-size: 0.85rem; }
+.paper-fields__swatch { display: inline-flex; }
+.paper-fields__swatch span { width: 0.6rem; height: 0.6rem; border-radius: 50%; box-shadow: 0 0 0 1.5px #fff; }
+.paper-fields__swatch span + span { margin-left: -0.22rem; }
+
 .paper-fields button {
   display: inline-flex; align-items: center; gap: 0.45rem;
   padding: 0.4rem 0.85rem 0.4rem 0.7rem; border: 1px solid rgb(11 58 99 / 0.16); border-radius: 999px;
@@ -296,20 +303,23 @@ img, svg, iframe { display: block; max-width: 100%; }
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 .paper-fields button:hover { border-color: var(--c); background: color-mix(in srgb, var(--c) 8%, #fff); }
-.paper-fields button[aria-pressed='true'] { border-color: var(--c); background: var(--c); color: #fff; }
-.paper-fields button[aria-pressed='true'] .paper-fields__dot { background: #fff; }
-.paper-fields button[aria-pressed='true'] .paper-fields__count { color: rgb(255 255 255 / 0.8); }
+.paper-fields button[aria-pressed='true'] { border-color: var(--c); background: color-mix(in srgb, var(--c) 16%, #fff); color: var(--abyss); box-shadow: inset 0 0 0 1px var(--c); }
 .paper-fields__all { padding-left: 0.85rem !important; }
 .paper-fields__dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--c); }
 .paper-fields__count { color: rgb(11 58 99 / 0.55); font-weight: 500; font-variant-numeric: tabular-nums; }
 
-.paper-list { display: grid; gap: 2rem; margin-top: 1.75rem; }
-.page .paper-list__group { margin-top: 0; max-width: 50rem; }
-.page .paper-list__group h2 { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.4rem; font-size: 1.2rem; }
-.paper-list__group h2::before { content: ''; width: 0.75rem; height: 0.75rem; border-radius: 50%; background: var(--c); }
+.paper-list { display: grid; gap: 2.5rem; margin-top: 1.5rem; }
+.page .paper-list__section { display: grid; gap: 1.75rem; max-width: 50rem; margin-top: 0; }
+.page .paper-list__section h2 { display: flex; align-items: center; gap: 0.55rem; margin: 0; font-size: 1.3rem; }
+.paper-list__section h2::before { content: ''; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--c); }
+.page .paper-list__group h3 { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.35rem; color: var(--deep); font-size: 1.02rem; font-weight: 720; }
+.paper-list__group h3::before { content: ''; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--c); }
+.paper-list__group[data-also] h3 { color: rgb(11 58 99 / 0.7); }
+.paper-list__group[data-also] h3::before { background: transparent; box-shadow: inset 0 0 0 2px var(--c); }
 .paper-list__group li { padding-block: 0.95rem; border-top: 1px solid rgb(11 58 99 / 0.12); min-width: 0; }
 .paper-list__group a { color: var(--deep); font-weight: 680; line-height: 1.4; text-decoration: none; }
 .paper-list__group a:hover { color: var(--ocean); text-decoration: underline; text-underline-offset: 0.18em; }
+.paper-list__group .paper-tags { margin-top: 0.5rem; }
 .paper-list__venue { margin-top: 0.15rem; color: rgb(11 58 99 / 0.62); font-size: 0.88rem; font-weight: 550; }
 .paper-list__summary { margin-top: 0.3rem; font-size: 0.97rem; }
 
@@ -358,18 +368,10 @@ img, svg, iframe { display: block; max-width: 100%; }
 .paper-node[data-active='true'] { z-index: 3; }
 .paper-node:focus-visible { outline-offset: 2px; }
 
-/* Dim other fields while a field is highlighted in the legend or a paper is open. */
-.paper-map[data-field] .paper-node:not([data-active='true']),
-.paper-map[data-field] .paper-territory,
-.paper-map[data-field] .paper-island { opacity: 0.22; }
-.paper-map[data-field='CV'] [data-field='CV'],
-.paper-map[data-field='NLP'] [data-field='NLP'],
-.paper-map[data-field='PEFT'] [data-field='PEFT'],
-.paper-map[data-field='Confidence Calibration'] [data-field='Confidence Calibration'],
-.paper-map[data-field='Continual Learning'] [data-field='Continual Learning'],
-.paper-map[data-field='Continual Unlearning'] [data-field='Continual Unlearning'],
-.paper-map[data-field='Machine Unlearning'] [data-field='Machine Unlearning'] { opacity: 1; }
-.paper-map[data-active] .paper-node:not([data-active='true']) { opacity: 0.55; }
+/* Dim what falls outside the area or field being shown, and fade other papers while one is open. */
+.paper-map [data-dim] { opacity: 0.2; }
+.paper-island[data-hidden] { visibility: hidden; }
+.paper-map[data-active] .paper-node:not([data-active='true']):not([data-dim]) { opacity: 0.55; }
 
 .paper-tip {
   position: absolute; z-index: 4; width: min(21rem, 46%); pointer-events: none;
@@ -383,10 +385,11 @@ img, svg, iframe { display: block; max-width: 100%; }
 .paper-tip[data-side='left'] { --dx: calc(-100% - 1.4rem); }
 .paper-tip[data-vert='up'] { --dy: calc(-100% + 1.1rem); }
 @keyframes paper-tip-in { from { opacity: 0; } to { opacity: 1; } }
-.paper-tip__fields { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.45rem; }
-.paper-tip__fields span {
+.paper-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.paper-tip .paper-tags { margin-bottom: 0.45rem; }
+.paper-tags span {
   padding: 0.05rem 0.5rem; border-radius: 999px; font-size: 0.72rem; font-weight: 650;
-  color: color-mix(in srgb, var(--c) 80%, var(--abyss)); background: color-mix(in srgb, var(--c) 12%, #fff);
+  color: color-mix(in srgb, var(--c) 78%, var(--abyss)); background: color-mix(in srgb, var(--c) 12%, #fff);
 }
 .paper-tip__title { color: var(--deep); font-size: 0.98rem; font-weight: 720; line-height: 1.35; text-wrap: balance; }
 .paper-tip__venue { margin-top: 0.2rem; color: rgb(11 58 99 / 0.65); font-size: 0.82rem; font-weight: 550; }

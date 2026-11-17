@@ -41,12 +41,15 @@ export const study = {
     ko: '점 하나가 읽은 논문 한 편이고, 주제가 가까운 논문끼리 모여 있습니다. 점에 마우스를 올리면 논문 정보를, 클릭하면 원문을 볼 수 있습니다.',
   },
   method: {
-    en: 'Positions come from t-SNE over each paper’s title, one-line summary and fields, so distances are only a rough measure of similarity. Colors follow each paper’s main field.',
-    ko: '위치는 논문 제목, 한 줄 요약, 분야를 t-SNE로 2차원에 투영해 정했기 때문에 거리는 대략적인 유사도입니다. 색은 논문의 주 분야를 따릅니다.',
+    en: 'Positions come from t-SNE over each paper’s title, one-line summary and fields, so distances are only a rough measure of similarity. Fields are grouped into broad areas: each area has one color family, and each paper takes the shade of its main field. Papers can carry more than one field tag.',
+    ko: '위치는 논문 제목, 한 줄 요약, 분야를 t-SNE로 2차원에 투영해 정했기 때문에 거리는 대략적인 유사도입니다. 세부 분야는 큰 연구 영역으로 묶여 있고, 영역마다 한 가지 색 계열을 쓰며 논문은 주 분야의 색을 따릅니다. 한 논문에 여러 분야 태그가 붙을 수 있습니다.',
   },
   mapLabel: { en: 'Map of papers I have read, grouped by field', ko: '읽은 논문을 분야별로 배치한 지도' },
   legendLabel: { en: 'Show papers by field', ko: '분야별 논문 보기' },
   allLabel: { en: 'All fields', ko: '전체' },
+  allInArea: { en: 'All', ko: '전체' },
+  fieldsLabel: { en: 'fields', ko: '세부 분야' },
+  alsoTagged: { en: 'Also tagged', ko: '함께 태그된 논문' },
 };
 
 export const ui = {

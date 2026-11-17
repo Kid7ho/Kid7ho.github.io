@@ -3,28 +3,54 @@ import type { Lang } from './site';
 // Layout: t-SNE (scikit-learn, seed 7) over TF-IDF of title + summary, joined with weighted field vectors.
 // x and y are normalised to 0..1; y grows downward.
 
-export const fieldOrder = [
-  'Continual Unlearning',
-  'Machine Unlearning',
-  'Continual Learning',
-  'PEFT',
-  'NLP',
-  'Confidence Calibration',
-  'CV',
+// Field taxonomy. Each paper is tagged with fields; the first one is its main field.
+// Fields are grouped into a few broad areas. Each area owns one hue and its fields get
+// shades of that hue, so related fields read as related on the map.
+// To add a field: add its name to an area's `fields`. To add an area: add one entry with a new hue.
+export const areas = [
+  {
+    key: 'forgetting',
+    name: 'Unlearning & Continual Learning',
+    hue: 28,
+    fields: ['Continual Unlearning', 'Machine Unlearning', 'Continual Learning'],
+  },
+  {
+    key: 'adaptation',
+    name: 'Efficient Adaptation',
+    hue: 78,
+    fields: ['PEFT', 'Knowledge Distillation'],
+  },
+  {
+    key: 'reliability',
+    name: 'Reliability',
+    hue: 162,
+    fields: ['Confidence Calibration'],
+  },
+  {
+    key: 'foundations',
+    name: 'Foundation Models',
+    hue: 262,
+    fields: ['CV', 'NLP'],
+  },
 ] as const;
 
-export type Field = (typeof fieldOrder)[number] | 'Knowledge Distillation';
+export type Area = (typeof areas)[number];
+export type AreaKey = Area['key'];
+export type Field = Area['fields'][number];
 
-export const fieldColor: Record<Field, string> = {
-  'Continual Unlearning': '#d92d20',
-  'Machine Unlearning': '#e8784f',
-  'Continual Learning': '#0a98b0',
-  PEFT: '#c08310',
-  NLP: '#7a50cc',
-  'Confidence Calibration': '#1f8a70',
-  CV: '#2d68d2',
-  'Knowledge Distillation': '#5f7f91',
-};
+// Shade i of an area: alternate lightness and nudge the hue so neighbours stay distinguishable.
+const LIGHT = [0.56, 0.66, 0.48, 0.61];
+const SHIFT = [0, 26, -26, 13];
+const shade = (hue: number, i: number) => `oklch(${LIGHT[i % 4]} 0.16 ${hue + SHIFT[i % 4]})`;
+
+export const areaColor = Object.fromEntries(areas.map((a) => [a.key, shade(a.hue, 0)])) as Record<AreaKey, string>;
+export const fieldArea = Object.fromEntries(
+  areas.flatMap((a) => a.fields.map((f) => [f, a.key])),
+) as Record<Field, AreaKey>;
+export const fieldColor = Object.fromEntries(
+  areas.flatMap((a) => a.fields.map((f, i) => [f, shade(a.hue, i)])),
+) as Record<Field, string>;
+export const allFields: Field[] = areas.flatMap((a) => [...a.fields]);
 
 export type Paper = {
   id: string;
