@@ -8,6 +8,7 @@ const tabs = [
   { key: 'home', path: '/' },
   { key: 'research', path: '/research/' },
   { key: 'projects', path: '/projects/' },
+  { key: 'study', path: '/study/' },
   { key: 'resume', path: '/resume/' },
 ] as const;
 
