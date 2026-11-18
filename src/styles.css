@@ -412,3 +412,36 @@ img, svg, iframe { display: block; max-width: 100%; }
   .paper-node__dot, .paper-territory, .paper-island, .paper-node { transition: none; }
   .paper-tip { animation: none; }
 }
+
+/* AI Health Guardian case study */
+.awards__subtitle { margin-top: 0.15rem; font-size: 0.95rem; opacity: 0.8; }
+.glance { display: grid; gap: 0; margin-top: 2rem; max-width: 50rem; border-top: 1px solid rgb(11 58 99 / 0.15); }
+.glance > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid rgb(11 58 99 / 0.15); }
+.glance dt { color: var(--ocean); font-size: 0.92rem; font-weight: 650; }
+.glance dd { margin: 0; color: var(--deep); font-weight: 600; line-height: 1.5; }
+
+.timeline { display: grid; gap: 0; margin-top: 0.5rem; }
+.timeline li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1.25rem; }
+.timeline li > div { position: relative; padding: 0 0 1.6rem 1.5rem; min-width: 0; }
+.timeline li > div::before { content: ''; position: absolute; left: 0; top: 0.4rem; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--lagoon); }
+.timeline li > div::after { content: ''; position: absolute; left: 0.27rem; top: 1.2rem; bottom: 0.2rem; width: 1px; background: rgb(11 58 99 / 0.2); }
+.timeline li:last-child > div::after { display: none; }
+.timeline__date { color: var(--ocean); font-size: 0.92rem; font-weight: 650; font-variant-numeric: tabular-nums; padding-top: 0.12rem; }
+.page .timeline h3 { color: var(--deep); font-size: 1.05rem; font-weight: 720; line-height: 1.4; }
+.timeline p { margin-top: 0.3rem; }
+.timeline li[data-highlight] h3 { color: var(--coral); }
+.timeline li[data-highlight] > div::before { background: var(--coral); box-shadow: 0 0 0 4px rgb(217 45 32 / 0.15); }
+
+.page section.case-part { padding-top: clamp(2rem, 5vw, 3rem); border-top: 2px solid var(--deep); }
+.case-part__lead { color: var(--ocean); font-size: 1.15rem; font-weight: 550; line-height: 1.5; }
+.page section.case-sub { margin-top: clamp(1.75rem, 4vw, 2.5rem); }
+.page .case-sub h3 { color: var(--deep); font-size: 1.15rem; font-weight: 720; margin-bottom: 0.6rem; }
+.case-sub .figures { margin-top: 0.4rem; }
+.figures__zoom { display: block; border-radius: 0.6rem; cursor: zoom-in; }
+.figures__zoom:hover img { box-shadow: 0 0 0 2px var(--lagoon); }
+
+@media (max-width: 760px) {
+  .glance > div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .timeline li { grid-template-columns: 1fr; gap: 0; }
+  .timeline__date { padding-left: 1.5rem; }
+}

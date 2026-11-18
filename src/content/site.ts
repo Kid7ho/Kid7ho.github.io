@@ -147,12 +147,16 @@ export const experience: Experience[] = [
   },
 ];
 
-export const awards: { date: Text; title: Text; note: Text }[] = [
+export const awards: { date: Text; title: Text; subtitle?: Text; note: Text }[] = [
   {
     date: { en: 'Sep 2026', ko: '2026.09' },
     title: {
-      en: 'Gyeonggi Volunteer Center Ideathon 2026: Chairperson’s Award',
-      ko: '2026 자원봉사 아이디어톤: 경기도자원봉사센터이사장상',
+      en: '2026 AI × Public and Social Data Volunteer Idea Program: Gyeonggi Volunteer Center Chairperson’s Award',
+      ko: '2026 AI×공공·사회 데이터 활용 자원봉사 실행 아이디어 지원 프로그램: 경기도자원봉사센터이사장상',
+    },
+    subtitle: {
+      en: 'Final round: 2026 Volunteer Ideathon',
+      ko: '본선: 2026 자원봉사 아이디어톤',
     },
     note: {
       en: 'Team lead',
@@ -277,8 +281,8 @@ export const featured: Project = {
   title: { en: 'AI Health Guardian', ko: 'AI 건강지킴이' },
   period: { en: 'Jul 2026 – Nov 2026', ko: '2026.07 – 2026.11' },
   summary: {
-    en: 'A KakaoTalk service for older adults. Share a health claim, and it checks academic papers and Korean food-safety data, then answers with a four-level traffic light.',
-    ko: '어르신이 받은 건강정보를 카카오톡으로 공유하면 논문과 식약처 데이터를 확인해 4단계 신호등으로 알려 주는 서비스입니다.',
+    en: 'Our entry to the Gyeonggi Volunteer Center’s AI and public-data volunteer program, which won the Chairperson’s Award. We built a KakaoTalk service that checks health claims against papers and food-safety data, then taught older adults to use it at welfare centers.',
+    ko: '경기도자원봉사센터 공모전에서 이사장상을 받은 프로젝트입니다. 건강정보를 논문과 식약처 데이터로 확인하는 카카오톡 서비스를 만들고, 복지관 어르신들께 직접 사용법을 알려드렸습니다.',
   },
   role: {
     en: 'Team lead. Planned and built the service.',
@@ -372,18 +376,117 @@ export const projectsPage = {
 
 export const caseStudy = {
   title: featured.title,
-  howItWorks: {
-    heading: { en: 'How it is used', ko: '사용 방법' } as Text,
+  lead: {
+    en: 'A volunteer project that went from a public vote and an ideathon to sessions with older adults at welfare centers. Along the way we built AI Health Guardian, a KakaoTalk service that checks health claims.',
+    ko: '공모전의 국민투표와 아이디어톤을 거쳐 수상하고, 그 과정에서 만든 AI 건강지킴이로 복지관 어르신들과 직접 현장 봉사까지 진행한 프로젝트입니다.',
+  } as Text,
+  glance: [
+    { label: { en: 'Contest', ko: '공모전' }, value: { en: '2026 AI × Public and Social Data Volunteer Idea Program, Gyeonggi Volunteer Center', ko: '2026 AI×공공·사회 데이터 활용 자원봉사 실행 아이디어 지원 프로그램 (경기도자원봉사센터)' } },
+    { label: { en: 'Result', ko: '결과' }, value: { en: 'Chairperson’s Award at the final (2026 Volunteer Ideathon); one of 10 teams funded', ko: '본선(2026 자원봉사 아이디어톤) 경기도자원봉사센터이사장상, 실행 지원 10팀 선정' } },
+    { label: { en: 'Field work', ko: '현장 봉사' }, value: { en: 'Two sessions at senior welfare centers in Goyang, 46 older adults surveyed', ko: '고양시 복지관 2회, 어르신 46명 설문' } },
+  ] as { label: Text; value: Text }[],
+  contest: {
+    heading: { en: 'The contest', ko: '공모전' } as Text,
+    body: {
+      en: 'The Gyeonggi Volunteer Center ran this program to find volunteer activities that use AI and public data to tackle social problems. Teams that make it through the application, a public vote and a final ideathon receive funding and mentoring, then carry out their idea in Gyeonggi Province and report back at a results-sharing session. What gets judged is the volunteer activity, not a product, so we framed our service as a tool that volunteers bring to older adults.',
+      ko: '경기도자원봉사센터가 AI와 공공·사회 데이터로 사회문제를 해결하는 자원봉사 아이디어를 찾는 프로그램입니다. 예선 접수와 국민투표, 본선 아이디어톤을 통과한 팀은 활동비와 멘토링을 받아 경기도 안에서 아이디어를 직접 실행하고, 성과공유회에서 결과를 발표합니다. 심사 대상은 제품이 아니라 봉사 활동이었기 때문에, 서비스는 봉사자가 어르신께 전하는 도구로 설계했습니다.',
+    } as Text,
+  },
+  timelineHeading: { en: 'How it went', ko: '진행 과정' } as Text,
+  timeline: [
+    {
+      date: { en: 'Jul 20', ko: '7.20' },
+      title: { en: 'Team formed', ko: '팀 구성' },
+      body: {
+        en: 'At the YAI × Liner industry-university kickoff we formed a five-person team and chose to reshape an earlier idea, a health-information checker for older adults, for this contest.',
+        ko: 'YAI × Liner 산학협력 킥오프에서 5인 팀을 꾸리고, 앞서 구상한 어르신 건강정보 확인 서비스를 이 공모전에 맞게 다시 설계하기로 했습니다.',
+      },
+    },
+    {
+      date: { en: 'Jul 24 – Aug 17', ko: '7.24 – 8.17' },
+      title: { en: 'Application', ko: '예선 접수' },
+      body: {
+        en: 'We submitted a one-line pitch, three 300-character answers (problem, solution, expected outcome), the public datasets we would use, a thumbnail and five card-news images. With so little text allowed, the cards carried most of the proposal.',
+        ko: '한 줄 소개, 문제발굴·해결활동·활동결과 각 300자, 활용할 공공데이터, 썸네일과 카드뉴스 5장을 제출했습니다. 글자 수가 적어 카드뉴스가 사실상 제안서 본문 역할을 했습니다.',
+      },
+    },
+    {
+      date: { en: 'Aug 24 – 31', ko: '8.24 – 8.31' },
+      title: { en: 'Public vote', ko: '온라인 국민투표' },
+      body: {
+        en: 'The first round opened with an online public vote. We asked for votes through the society’s network and social media.',
+        ko: '1차 심사의 첫 단계는 시민이 참여하는 온라인 국민투표였습니다. 학회 네트워크와 SNS로 투표를 부탁했습니다.',
+      },
+    },
+    {
+      date: { en: 'Early Sep', ko: '9월 초' },
+      title: { en: 'Into the final', ko: '본선 진출' },
+      body: {
+        en: 'We were one of 15 teams, out of 101, selected for the final.',
+        ko: '101팀 중 본선에 오른 15팀에 선정되었습니다.',
+      },
+    },
+    {
+      date: { en: 'Sep 12', ko: '9.12' },
+      title: { en: 'Final: 2026 Volunteer Ideathon', ko: '본선: 2026 자원봉사 아이디어톤' },
+      body: {
+        en: 'The finalists got expert consulting in the morning and pitched in the afternoon. Each pitch was scored on five criteria worth 20 points each: fit to the problem, social impact, originality, feasibility as volunteer work, and sustainability. We placed 7th, joined the 10 teams funded to carry out their ideas, and received the Gyeonggi Volunteer Center Chairperson’s Award with ₩500,000 in activity funding.',
+        ko: '본선 15팀이 전문가 컨설팅을 받은 뒤 최종 발표를 했고, 문제 적합성, 사회적 효과성, 창의성·차별성, 자원봉사 실행 가능성, 지속가능성·확산성 다섯 항목(각 20점)으로 심사받았습니다. 7위로 실행 지원 10팀에 들어 경기도자원봉사센터이사장상과 활동비 50만 원을 받았습니다.',
+      },
+      highlight: true,
+    },
+    {
+      date: { en: 'Sep 12 – Oct 25', ko: '9.12 – 10.25' },
+      title: { en: 'Building the service', ko: '서비스 개발' },
+      body: {
+        en: 'I started building the day of the ideathon and launched the service as a KakaoTalk channel. A neurology professor reviewed 20 cases, and in mid-October my grandparents tried it as a first user test.',
+        ko: '아이디어톤 당일부터 개발을 시작해 카카오톡 채널로 서비스를 열었습니다. 신경과 교수님께 사례 20건의 의료 자문을 받았고, 10월 중순에는 조부모님과 첫 사용 테스트를 했습니다.',
+      },
+    },
+    {
+      date: { en: 'Session 1', ko: '1차 봉사' },
+      title: { en: 'Senior welfare center, Goyang', ko: '고양시 복지관' },
+      body: {
+        en: 'We sat with older adults to add the channel and try a real share together. 34 answered our survey and 20 said they would use the service; 12 more took the printed guide home.',
+        ko: '어르신들과 함께 채널을 추가하고 실제로 영상을 공유해 보며 사용법을 알려드렸습니다. 설문에 응한 34명 중 20명이 사용 의향을 밝혔고, 12명은 안내문을 받아 가셨습니다.',
+      },
+    },
+    {
+      date: { en: 'Nov 6', ko: '11.6' },
+      title: { en: 'Session 2: Goyang Senior Welfare Center', ko: '2차 봉사: 고양시노인종합복지관' },
+      body: {
+        en: 'A second session with a group that used phones less often. 12 answered the survey and 3 said they would use the service.',
+        ko: '휴대폰 사용이 적은 어르신이 많았던 두 번째 봉사로, 설문에 응한 12명 중 3명이 사용 의향을 밝혔습니다.',
+      },
+    },
+    {
+      date: { en: 'Nov 10', ko: '11.10' },
+      title: { en: 'Results-sharing session', ko: '성과공유회' },
+      body: {
+        en: 'We shared what we did and learned with the other funded teams at the Gyeonggi Volunteer Center.',
+        ko: '경기도자원봉사센터 성과공유회에서 실행 10팀과 함께 활동 결과를 공유했습니다.',
+      },
+    },
+  ] as { date: Text; title: Text; body: Text; highlight?: boolean }[],
+  submission: {
+    heading: { en: 'What we submitted', ko: '제출한 아이디어' } as Text,
+    note: {
+      en: 'The thumbnail and five card-news images from the application, in Korean as submitted. Select an image to see it full size.',
+      ko: '예선 접수 때 제출한 썸네일과 카드뉴스 5장입니다. 이미지를 누르면 크게 볼 수 있습니다.',
+    } as Text,
     figures: [
-      { src: '/projects/ai-health-guardian/step-share.jpg', alt: { en: 'Tapping share on a video', ko: '영상에서 공유 버튼을 누르는 화면' }, caption: { en: '1. Tap share on the video.', ko: '1. 영상에서 공유를 누릅니다.' } },
-      { src: '/projects/ai-health-guardian/step-copy.jpg', alt: { en: 'Choosing copy link', ko: '링크 복사를 고르는 화면' }, caption: { en: '2. Copy the link.', ko: '2. 링크를 복사합니다.' } },
-      { src: '/projects/ai-health-guardian/step-paste.jpg', alt: { en: 'Pasting the link into the chat', ko: '채팅창에 링크를 붙여넣는 화면' }, caption: { en: '3. Paste it into the chat.', ko: '3. 채팅창에 붙여넣습니다.' } },
-      { src: '/projects/ai-health-guardian/step-result.jpg', alt: { en: 'A result card', ko: '결과 카드' }, caption: { en: '4. Read the result card.', ko: '4. 결과 카드를 확인합니다.' } },
+      { src: '/projects/ai-health-guardian/thumbnail.jpg', alt: { en: 'Application thumbnail: an older woman and a student looking at a phone, titled “Is this information real?”', ko: '썸네일: 어르신과 학생이 함께 휴대폰을 보는 사진과 “이 정보 진짜예요?” 제목' }, caption: { en: 'Thumbnail: “Is this information real?”', ko: '썸네일: “이 정보 진짜예요?”' } },
+      { src: '/projects/ai-health-guardian/card-1.jpg', alt: { en: 'Card 1: statistics on health-information literacy and AI-made health videos', ko: '카드 1: 건강정보 이해능력과 AI 제작 건강 영상 통계' }, caption: { en: '1. The problem: phones, but no way to tell what is real', ko: '1. 문제: 스마트폰은 있지만 진짜를 가릴 방법이 없음' } },
+      { src: '/projects/ai-health-guardian/card-2.jpg', alt: { en: 'Card 2: a misleading video next to the service’s result card', ko: '카드 2: 허위 영상과 서비스 결과 화면 비교' }, caption: { en: '2. Before and after', ko: '2. 비포 & 애프터' } },
+      { src: '/projects/ai-health-guardian/card-3.jpg', alt: { en: 'Card 3: the seven-step service pipeline', ko: '카드 3: 7단계 서비스 파이프라인' }, caption: { en: '3. The seven-step pipeline', ko: '3. 7단계 파이프라인' } },
+      { src: '/projects/ai-health-guardian/card-4.jpg', alt: { en: 'Card 4: checking papers and public records at the same time', ko: '카드 4: 학술 연구와 공공데이터 이중 검증' }, caption: { en: '4. Papers and public records, checked together', ko: '4. 학술 연구와 공공데이터 이중 검증' } },
+      { src: '/projects/ai-health-guardian/card-5.jpg', alt: { en: 'Card 5: volunteer role and how checking spreads', ko: '카드 5: 봉사자의 역할과 확산 구조' }, caption: { en: '5. Volunteers and how it spreads', ko: '5. 봉사와 확산 구조' } },
     ],
   },
-  lead: {
-    en: 'Health videos and messages spread faster than older adults can check them. This service makes checking as easy as sharing.',
-    ko: '건강 영상과 메시지는 어르신이 확인하는 속도보다 빠르게 퍼집니다. 이 서비스는 확인을 공유만큼 쉽게 만듭니다.',
+  serviceHeading: { en: 'The service: AI Health Guardian', ko: '만들어진 서비스: AI 건강지킴이' } as Text,
+  serviceLead: {
+    en: 'Health videos and messages spread faster than older adults can check them. AI Health Guardian makes checking as easy as sharing.',
+    ko: '건강 영상과 메시지는 어르신이 확인하는 속도보다 빠르게 퍼집니다. AI 건강지킴이는 확인을 공유만큼 쉽게 만듭니다.',
   } as Text,
   sections: [
     {
@@ -401,6 +504,15 @@ export const caseStudy = {
       } as Text,
     },
   ],
+  howItWorks: {
+    heading: { en: 'How it is used', ko: '사용 방법' } as Text,
+    figures: [
+      { src: '/projects/ai-health-guardian/step-share.jpg', alt: { en: 'Tapping share on a video', ko: '영상에서 공유 버튼을 누르는 화면' }, caption: { en: '1. Tap share on the video.', ko: '1. 영상에서 공유를 누릅니다.' } },
+      { src: '/projects/ai-health-guardian/step-copy.jpg', alt: { en: 'Choosing copy link', ko: '링크 복사를 고르는 화면' }, caption: { en: '2. Copy the link.', ko: '2. 링크를 복사합니다.' } },
+      { src: '/projects/ai-health-guardian/step-paste.jpg', alt: { en: 'Pasting the link into the chat', ko: '채팅창에 링크를 붙여넣는 화면' }, caption: { en: '3. Paste it into the chat.', ko: '3. 채팅창에 붙여넣습니다.' } },
+      { src: '/projects/ai-health-guardian/step-result.jpg', alt: { en: 'A result card', ko: '결과 카드' }, caption: { en: '4. Read the result card.', ko: '4. 결과 카드를 확인합니다.' } },
+    ],
+  },
   verdictHeading: { en: 'Four possible answers', ko: '네 가지 답변' } as Text,
   verdictNote: {
     en: 'A rule table makes the final call, so the same evidence always gets the same answer. When the evidence is weak, the service says it does not know.',
@@ -412,22 +524,25 @@ export const caseStudy = {
     { en: 'Warning', ko: '주의하세요', tone: 'bad' },
     { en: 'Unknown', ko: '알 수 없어요', tone: 'none' },
   ],
+  resultsHeading: { en: 'How well it worked', ko: '서비스 성능' } as Text,
+  results: [
+    { en: 'Key-claim recall rose from 40% to about 80% on 45 real links after adding an LLM extractor.', ko: 'LLM 주장 추출을 도입해 실제 링크 45건에서 핵심 주장 재현율을 40%에서 약 80%로 높였습니다.' },
+    { en: 'Paper stance classification reached 89% accuracy on 383 pairs.', ko: '논문 입장 분류는 383쌍에서 정확도 89%를 기록했습니다.' },
+    { en: 'A neurology professor reviewed 20 cases and found the verdicts broadly appropriate.', ko: '신경과 교수님의 사례 20건 의료 자문에서 판정 체계가 전반적으로 적절하다는 의견을 받았습니다.' },
+  ] as Text[],
+  fieldHeading: { en: 'What we heard in the field', ko: '현장에서 들은 것' } as Text,
+  field: {
+    en: 'Across the two sessions, 23 of 46 surveyed older adults said they would use the service. The pitch that worked best was the simplest one: no new app, just the KakaoTalk they already use. The main complaints were that adding the channel was hard, the text was small, questions had to follow a fixed form, and it was hard to trust an AI’s answer.',
+    ko: '두 차례 봉사에서 설문한 어르신 46명 중 23명이 사용 의향을 밝혔습니다. 가장 반응이 좋았던 설명은 “새 앱 없이 쓰던 카카오톡으로 바로 확인할 수 있다”였습니다. 반대로 채널 추가 과정이 어렵다, 글자가 작다, 질문 형식이 고정적이다, AI 답변을 믿기 어렵다는 의견이 나왔습니다.',
+  } as Text,
   roleHeading: { en: 'My role', ko: '맡은 일' } as Text,
   role: {
     en: 'I led the five-person team and did all of the planning and development myself. Teammates supported the volunteer sessions and the final presentation at the ideathon. The project was carried out as part of the AX Industry-University Cooperation Project (AXP) run by Yonsei University’s AI-Centered University Program.',
     ko: '5인 팀을 이끌며 서비스 기획과 개발을 모두 직접 진행했습니다. 팀원들은 봉사 진행과 공모전 본선 발표 등을 도왔습니다. 이 프로젝트는 연세대학교 AI중심대학사업단의 AX 산학협력 프로젝트(AXP)로 수행했습니다.',
   } as Text,
-  resultsHeading: { en: 'Results', ko: '결과' } as Text,
-  results: [
-    { en: 'Key-claim recall rose from 40% to about 80% on 45 real links after adding an LLM extractor.', ko: 'LLM 주장 추출을 도입해 실제 링크 45건에서 핵심 주장 재현율을 40%에서 약 80%로 높였습니다.' },
-    { en: 'Paper stance classification reached 89% accuracy on 383 pairs.', ko: '논문 입장 분류는 383쌍에서 정확도 89%를 기록했습니다.' },
-    { en: 'A neurology professor reviewed 20 cases and found the verdicts broadly appropriate.', ko: '신경과 교수의 사례 20건 의료 자문에서 판정 체계가 전반적으로 적절하다는 의견을 받았습니다.' },
-    { en: 'Across two volunteer sessions at senior welfare centers in Goyang, the second at Goyang Senior Welfare Center on Nov 6, 23 of 46 surveyed older adults said they would use the service.', ko: '고양시 복지관에서 두 차례 현장 봉사를 진행했고(2차는 11.6 고양시노인종합복지관), 설문한 어르신 46명 중 23명이 사용 의향을 밝혔습니다.' },
-    { en: 'Won the Chairperson’s Award at the Gyeonggi Volunteer Center Ideathon 2026.', ko: '2026 자원봉사 아이디어톤에서 경기도자원봉사센터이사장상을 받았습니다.' },
-  ] as Text[],
   status: {
-    en: 'Completed in November 2026. Results were shared at the Gyeonggi Volunteer Center results-sharing session on Nov 10. The KakaoTalk channel remains open.',
-    ko: '2026.11에 종료했고, 11.10 경기도자원봉사센터 성과공유회에서 결과를 공유했습니다. 카카오톡 채널은 계속 열어 두었습니다.',
+    en: 'Completed in November 2026. The KakaoTalk channel remains open.',
+    ko: '2026.11에 종료했고, 카카오톡 채널은 계속 열어 두었습니다.',
   } as Text,
   stackHeading: { en: 'Built with', ko: '사용 기술' } as Text,
   stack: {

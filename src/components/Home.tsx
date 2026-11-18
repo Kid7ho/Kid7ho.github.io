@@ -89,6 +89,7 @@ export function Home({ lang }: { lang: Lang }) {
                   <p className="awards__date">{item.date[lang]}</p>
                   <div>
                     <h3>{item.title[lang]}</h3>
+                    {item.subtitle ? <p className="awards__subtitle">{item.subtitle[lang]}</p> : null}
                     {item.note[lang] ? <p>{item.note[lang]}</p> : null}
                   </div>
                 </li>
