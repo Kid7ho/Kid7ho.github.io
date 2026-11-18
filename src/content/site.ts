@@ -383,7 +383,7 @@ export const caseStudy = {
   glance: [
     { label: { en: 'Contest', ko: '공모전' }, value: { en: '2026 AI × Public and Social Data Volunteer Idea Program, Gyeonggi Volunteer Center', ko: '2026 AI×공공·사회 데이터 활용 자원봉사 실행 아이디어 지원 프로그램 (경기도자원봉사센터)' } },
     { label: { en: 'Result', ko: '결과' }, value: { en: 'Chairperson’s Award at the final (2026 Volunteer Ideathon); one of 10 teams funded', ko: '본선(2026 자원봉사 아이디어톤) 경기도자원봉사센터이사장상, 실행 지원 10팀 선정' } },
-    { label: { en: 'Field work', ko: '현장 봉사' }, value: { en: 'Two sessions at senior welfare centers in Goyang, 46 older adults surveyed', ko: '고양시 복지관 2회, 어르신 46명 설문' } },
+    { label: { en: 'Field work', ko: '현장 봉사' }, value: { en: 'Two sessions at the Goyang Senior Welfare Center, 46 older adults surveyed', ko: '고양시노인종합복지관 2회, 어르신 46명 설문' } },
   ] as { label: Text; value: Text }[],
   contest: {
     heading: { en: 'The contest', ko: '공모전' } as Text,
@@ -455,13 +455,13 @@ export const caseStudy = {
       date: { en: 'Oct 26', ko: '10.26' },
       title: { en: 'Finding a volunteer site', ko: '봉사처 섭외' },
       body: {
-        en: 'By the third mentoring session we had contacted 17 places, including 13 senior welfare centers in Seoul, volunteer clubs and a volunteer center. Most had not replied; the volunteer center connected us to welfare centers in Goyang.',
-        ko: '3차 멘토링까지 서울 노인복지관 13곳, 봉사 동아리, 자원봉사센터 등 17곳에 연락했습니다. 대부분 회신을 기다리는 상황이었고, 자원봉사센터를 통해 고양시 복지관과 연계가 이루어졌습니다.',
+        en: 'By the third mentoring session we had contacted 17 places, including 13 senior welfare centers in Seoul, volunteer clubs and a volunteer center. Most had not replied; the volunteer center connected us to the Goyang Senior Welfare Center.',
+        ko: '3차 멘토링까지 서울 노인복지관 13곳, 봉사 동아리, 자원봉사센터 등 17곳에 연락했습니다. 대부분 회신을 기다리는 상황이었고, 자원봉사센터를 통해 고양시노인종합복지관과 연계가 이루어졌습니다.',
       },
     },
     {
       date: { en: 'Nov 4', ko: '11.4' },
-      title: { en: 'Session 1: Senior welfare center, Goyang', ko: '1차 봉사: 고양시 복지관' },
+      title: { en: 'Session 1: Goyang Senior Welfare Center', ko: '1차 봉사: 고양시노인종합복지관' },
       body: {
         en: 'We sat with older adults to add the channel and try a real share together. 34 answered our survey and 20 said they would use the service; 12 more took the printed guide home.',
         ko: '어르신들과 함께 채널을 추가하고 실제로 영상을 공유해 보며 사용법을 알려드렸습니다. 설문에 응한 34명 중 20명이 사용 의향을 밝혔고, 12명은 안내문을 받아 가셨습니다.',
