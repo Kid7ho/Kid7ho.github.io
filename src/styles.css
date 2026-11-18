@@ -437,6 +437,8 @@ img, svg, iframe { display: block; max-width: 100%; }
 .page section.case-sub { margin-top: clamp(1.75rem, 4vw, 2.5rem); }
 .page .case-sub h3 { color: var(--deep); font-size: 1.15rem; font-weight: 720; margin-bottom: 0.6rem; }
 .case-sub .figures { margin-top: 0.4rem; }
+.figures[data-aspect] img { aspect-ratio: var(--aspect); object-fit: cover; }
+.figures + .figures { margin-top: 1.25rem; }
 .figures__zoom { display: block; border-radius: 0.6rem; cursor: zoom-in; }
 .figures__zoom:hover img { box-shadow: 0 0 0 2px var(--lagoon); }
 

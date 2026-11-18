@@ -414,8 +414,8 @@ export const caseStudy = {
       date: { en: 'Aug 24 – 31', ko: '8.24 – 8.31' },
       title: { en: 'Public vote', ko: '온라인 국민투표' },
       body: {
-        en: 'The first round opened with an online public vote. We asked for votes through the society’s network and social media.',
-        ko: '1차 심사의 첫 단계는 시민이 참여하는 온라인 국민투표였습니다. 학회 네트워크와 SNS로 투표를 부탁했습니다.',
+        en: 'The first round combined an internal review (70%) with an online public vote (30%). We asked for votes through the society’s network and social media and received 145 likes, 6th of 101 teams.',
+        ko: '1차 심사는 내부 심사 70%와 시민이 참여하는 온라인 국민투표 30%로 진행되었습니다. 학회 네트워크와 SNS로 투표를 부탁해 좋아요 145개, 101팀 중 6위를 기록했습니다.',
       },
     },
     {
@@ -436,16 +436,32 @@ export const caseStudy = {
       highlight: true,
     },
     {
-      date: { en: 'Sep 12 – Oct 25', ko: '9.12 – 10.25' },
-      title: { en: 'Building the service', ko: '서비스 개발' },
+      date: { en: 'Sep 12 – Oct 10', ko: '9.12 – 10.10' },
+      title: { en: 'Building the service, mentoring', ko: '서비스 개발과 멘토링' },
       body: {
-        en: 'I started building the day of the ideathon and launched the service as a KakaoTalk channel. A neurology professor reviewed 20 cases, and in mid-October my grandparents tried it as a first user test.',
-        ko: '아이디어톤 당일부터 개발을 시작해 카카오톡 채널로 서비스를 열었습니다. 신경과 교수님께 사례 20건의 의료 자문을 받았고, 10월 중순에는 조부모님과 첫 사용 테스트를 했습니다.',
+        en: 'I started building the day of the ideathon and launched the service as a KakaoTalk channel. At the program’s mentoring sessions (Sep 30, Oct 10) we presented the pipeline, the cost per check (about ₩42) and the volunteer plan. A neurology professor reviewed 20 real results and found the verdicts broadly appropriate.',
+        ko: '아이디어톤 당일부터 개발을 시작해 카카오톡 채널로 서비스를 열었습니다. 프로그램 멘토링(9.30, 10.10)에서 파이프라인, 확인 1건당 비용(약 42원), 봉사 계획을 발표했고, 신경과 교수님께 실제 결과 20건을 검토받아 판정 체계가 전반적으로 적절하다는 의견을 받았습니다.',
       },
     },
     {
-      date: { en: 'Session 1', ko: '1차 봉사' },
-      title: { en: 'Senior welfare center, Goyang', ko: '고양시 복지관' },
+      date: { en: 'Oct 11 – 18', ko: '10.11 – 10.18' },
+      title: { en: 'First user test', ko: '1차 테스트' },
+      body: {
+        en: 'Volunteer placements were slow to confirm, so we first tested with ten of our team members’ grandparents, all over 60: a survey, a short talk on why health claims need checking, hands-on practice, and a second survey. Their 11 pieces of feedback changed the poster, the talk and the service. For example, results now say “7 of 10 studies found an effect” instead of technical terms.',
+        ko: '봉사처 연계가 늦어져 팀원들의 조부모님 10분(60세 이상)과 먼저 테스트했습니다. 사전 설문, 건강정보를 확인해야 하는 이유 교육, 사용 실습, 사후 설문 순서로 진행했고, 받은 피드백 11건을 포스터·교육·서비스에 모두 반영했습니다. 예를 들어 결과 문구를 “연구 10편 중 7편은 효과가 있다고 했어요”처럼 쉬운 말로 바꾸었습니다.',
+      },
+    },
+    {
+      date: { en: 'Oct 26', ko: '10.26' },
+      title: { en: 'Finding a volunteer site', ko: '봉사처 섭외' },
+      body: {
+        en: 'By the third mentoring session we had contacted 17 places, including 13 senior welfare centers in Seoul, volunteer clubs and a volunteer center. Most had not replied; the volunteer center connected us to welfare centers in Goyang.',
+        ko: '3차 멘토링까지 서울 노인복지관 13곳, 봉사 동아리, 자원봉사센터 등 17곳에 연락했습니다. 대부분 회신을 기다리는 상황이었고, 자원봉사센터를 통해 고양시 복지관과 연계가 이루어졌습니다.',
+      },
+    },
+    {
+      date: { en: 'Nov 4', ko: '11.4' },
+      title: { en: 'Session 1: Senior welfare center, Goyang', ko: '1차 봉사: 고양시 복지관' },
       body: {
         en: 'We sat with older adults to add the channel and try a real share together. 34 answered our survey and 20 said they would use the service; 12 more took the printed guide home.',
         ko: '어르신들과 함께 채널을 추가하고 실제로 영상을 공유해 보며 사용법을 알려드렸습니다. 설문에 응한 34명 중 20명이 사용 의향을 밝혔고, 12명은 안내문을 받아 가셨습니다.',
@@ -481,6 +497,22 @@ export const caseStudy = {
       { src: '/projects/ai-health-guardian/card-3.jpg', alt: { en: 'Card 3: the seven-step service pipeline', ko: '카드 3: 7단계 서비스 파이프라인' }, caption: { en: '3. The seven-step pipeline', ko: '3. 7단계 파이프라인' } },
       { src: '/projects/ai-health-guardian/card-4.jpg', alt: { en: 'Card 4: checking papers and public records at the same time', ko: '카드 4: 학술 연구와 공공데이터 이중 검증' }, caption: { en: '4. Papers and public records, checked together', ko: '4. 학술 연구와 공공데이터 이중 검증' } },
       { src: '/projects/ai-health-guardian/card-5.jpg', alt: { en: 'Card 5: volunteer role and how checking spreads', ko: '카드 5: 봉사자의 역할과 확산 구조' }, caption: { en: '5. Volunteers and how it spreads', ko: '5. 봉사와 확산 구조' } },
+    ],
+  },
+  photos: {
+    heading: { en: 'Photos and materials', ko: '현장 사진과 자료' } as Text,
+    note: {
+      en: 'From the call for entries to the final. Names of individual entrants on the results board are hidden. Select an image to see it full size.',
+      ko: '모집부터 본선까지의 자료입니다. 결과 발표의 개인 참가자 이름은 가렸습니다. 이미지를 누르면 크게 볼 수 있습니다.',
+    } as Text,
+    documents: [
+      { src: '/projects/ai-health-guardian/program-poster.jpg', alt: { en: 'Program poster with topic, fields, schedule and prizes', ko: '프로그램 포스터: 참여 주제, 분야, 주요 일정, 시상 내역' }, caption: { en: 'Call for entries: schedule and prizes', ko: '모집 포스터: 일정과 시상 내역' }, focus: 'top' },
+      { src: '/projects/ai-health-guardian/final-selection.jpg', alt: { en: 'Final results: five Governor’s Award teams and five Chairperson’s Award teams, including YAI', ko: '최종 선정 발표: 경기도지사상 5팀과 경기도자원봉사센터이사장상 5팀, 그중 YAI' }, caption: { en: 'Final results: YAI among the Chairperson’s Award teams', ko: '최종 선정 발표: 이사장상 5팀 중 YAI' }, focus: 'center 62%' },
+      { src: '/projects/ai-health-guardian/ideathon-banner.jpg', alt: { en: 'Our exhibition banner at the ideathon: AI health information check service for older adults', ko: '본선 전시 배너: 어르신들을 위한 AI 건강정보 확인 서비스' }, caption: { en: 'Our banner at the final', ko: '본선 전시 배너' }, focus: 'top' },
+    ],
+    scenes: [
+      { src: '/projects/ai-health-guardian/ideathon-stage.jpg', alt: { en: 'Pitching on stage at the 2026 Volunteer Ideathon', ko: '2026 자원봉사 아이디어톤 무대에서 발표하는 모습' }, caption: { en: 'Pitching at the ideathon, Sep 12', ko: '아이디어톤 본선 발표 (9.12)' }, focus: 'center 70%' },
+      { src: '/projects/ai-health-guardian/award-team.jpg', alt: { en: 'The team in front of the banners, holding the Chairperson’s Award plaque', ko: '배너 앞에서 이사장상 상패를 든 팀 사진' }, caption: { en: 'With the Chairperson’s Award', ko: '경기도자원봉사센터이사장상 수상' }, focus: 'center 30%' },
     ],
   },
   serviceHeading: { en: 'The service: AI Health Guardian', ko: '만들어진 서비스: AI 건강지킴이' } as Text,
@@ -532,8 +564,8 @@ export const caseStudy = {
   ] as Text[],
   fieldHeading: { en: 'What we heard in the field', ko: '현장에서 들은 것' } as Text,
   field: {
-    en: 'Across the two sessions, 23 of 46 surveyed older adults said they would use the service. The pitch that worked best was the simplest one: no new app, just the KakaoTalk they already use. The main complaints were that adding the channel was hard, the text was small, questions had to follow a fixed form, and it was hard to trust an AI’s answer.',
-    ko: '두 차례 봉사에서 설문한 어르신 46명 중 23명이 사용 의향을 밝혔습니다. 가장 반응이 좋았던 설명은 “새 앱 없이 쓰던 카카오톡으로 바로 확인할 수 있다”였습니다. 반대로 채널 추가 과정이 어렵다, 글자가 작다, 질문 형식이 고정적이다, AI 답변을 믿기 어렵다는 의견이 나왔습니다.',
+    en: 'Across the two sessions, 23 of 46 surveyed older adults said they would use the service. The pitch that worked best was the simplest one: no new app, just the KakaoTalk they already use. The main complaints were that adding the channel was hard, the text was small, questions had to follow a fixed form, and it was hard to trust an AI’s answer. The first test had already warned us: “It’s not about accuracy, I send these to say hello,” and “Too many ‘Unknown’s. Then why use it?” An accurate tool is not the same as a tool people use.',
+    ko: '두 차례 봉사에서 설문한 어르신 46명 중 23명이 사용 의향을 밝혔습니다. 가장 반응이 좋았던 설명은 “새 앱 없이 쓰던 카카오톡으로 바로 확인할 수 있다”였습니다. 반대로 채널 추가 과정이 어렵다, 글자가 작다, 질문 형식이 고정적이다, AI 답변을 믿기 어렵다는 의견이 나왔습니다. 1차 테스트에서 들은 “정확한지보다, 안부로 보내는 거지”, “알 수 없어요가 너무 많아. 그럼 왜 써?”라는 말도 같은 점을 가리켰습니다. 정확한 도구와 실제로 쓰이는 도구는 다르다는 것입니다.',
   } as Text,
   roleHeading: { en: 'My role', ko: '맡은 일' } as Text,
   role: {

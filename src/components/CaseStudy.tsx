@@ -46,6 +46,13 @@ export function CaseStudy({ lang }: { lang: Lang }) {
           </section>
 
           <section>
+            <h2>{caseStudy.photos.heading[lang]}</h2>
+            <p>{caseStudy.photos.note[lang]}</p>
+            <FigureGrid figures={caseStudy.photos.documents} columns={3} lang={lang} zoom aspect="3 / 4" />
+            <FigureGrid figures={caseStudy.photos.scenes} columns={2} lang={lang} zoom aspect="4 / 3" />
+          </section>
+
+          <section>
             <h2>{caseStudy.submission.heading[lang]}</h2>
             <p>{caseStudy.submission.note[lang]}</p>
             <FigureGrid figures={caseStudy.submission.figures} columns={3} lang={lang} zoom />

@@ -3,7 +3,7 @@ import type { LinkItem, Text } from './site';
 // Detail pages shown by "See in Details". Each post's slug matches a project in site.ts.
 // Put images in public/projects/<slug>/ and list them in a section's `figures`.
 
-export type Figure = { src: string; alt: Text; caption?: Text };
+export type Figure = { src: string; alt: Text; caption?: Text; focus?: string };
 
 export type PostSection = {
   heading: Text;
