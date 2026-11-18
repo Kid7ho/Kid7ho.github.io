@@ -414,8 +414,8 @@ export const caseStudy = {
       date: { en: 'Aug 24 – 31', ko: '8.24 – 8.31' },
       title: { en: 'Public vote', ko: '온라인 국민투표' },
       body: {
-        en: 'The first round combined an internal review (70%) with an online public vote (30%). We asked for votes through the society’s network and social media and received 145 likes, 6th of 101 teams.',
-        ko: '1차 심사는 내부 심사 70%와 시민이 참여하는 온라인 국민투표 30%로 진행되었습니다. 학회 네트워크와 SNS로 투표를 부탁해 좋아요 145개, 101팀 중 6위를 기록했습니다.',
+        en: 'The first round combined an internal review (70%) with an online public vote (30%). We asked for votes through the society’s network and social media and received 145 likes, 6th of 101 teams. 1,463 people took part in the vote.',
+        ko: '1차 심사는 내부 심사 70%와 시민이 참여하는 온라인 국민투표 30%로 진행되었습니다. 학회 네트워크와 SNS로 투표를 부탁해 좋아요 145개, 101팀 중 6위를 기록했습니다. 국민투표에는 1,463명이 참여했습니다.',
       },
     },
     {
@@ -479,8 +479,8 @@ export const caseStudy = {
       date: { en: 'Nov 10', ko: '11.10' },
       title: { en: 'Results-sharing session', ko: '성과공유회' },
       body: {
-        en: 'We shared what we did and learned with the other funded teams at the Gyeonggi Volunteer Center.',
-        ko: '경기도자원봉사센터 성과공유회에서 실행 10팀과 함께 활동 결과를 공유했습니다.',
+        en: 'The last step of the program. The ten funded teams, who together ran 32 activities with 166 volunteers, presented and exhibited their results. Each team received its certificate and medal from the Gyeonggi Volunteer Center here.',
+        ko: '공모전의 마지막 단계입니다. 실행 10팀이 함께 진행한 활동 32회, 봉사자 166명의 결과를 발표하고 전시했고, 이 자리에서 경기도자원봉사센터이사장 표창장과 메달을 받았습니다.',
       },
     },
   ] as { date: Text; title: Text; body: Text; highlight?: boolean }[],
@@ -513,6 +513,20 @@ export const caseStudy = {
     scenes: [
       { src: '/projects/ai-health-guardian/ideathon-stage.jpg', alt: { en: 'Pitching on stage at the 2026 Volunteer Ideathon', ko: '2026 자원봉사 아이디어톤 무대에서 발표하는 모습' }, caption: { en: 'Pitching at the ideathon, Sep 12', ko: '아이디어톤 본선 발표 (9.12)' }, focus: 'center 70%' },
       { src: '/projects/ai-health-guardian/award-team.jpg', alt: { en: 'The team in front of the banners, holding the Chairperson’s Award plaque', ko: '배너 앞에서 이사장상 상패를 든 팀 사진' }, caption: { en: 'With the Chairperson’s Award', ko: '경기도자원봉사센터이사장상 수상' }, focus: 'center 30%' },
+    ],
+  },
+  sharing: {
+    heading: { en: 'Results-sharing session, Nov 10', ko: '성과공유회 (11.10)' } as Text,
+    note: {
+      en: 'The final event of the program, where the award was presented. Event photos: DEVFIVE, via Gaebal Ilbo.',
+      ko: '공모전의 마지막 행사로, 이 자리에서 상을 받았습니다. 행사 사진 출처: 개발일보(데브파이브 제공).',
+    } as Text,
+    source: { href: 'https://devonestep.kr/12/1439', label: { en: 'Read the article (Korean)', ko: '기사 보기' } as Text },
+    figures: [
+      { src: '/projects/ai-health-guardian/medal-certificate.jpg', alt: { en: 'The Chairperson’s Award medal and certificate, dated November 10, 2026, issued to YAI', ko: '경기도자원봉사센터이사장 표창장과 메달 (2026.11.10, 연세대학교 인공지능학회 YAI)' }, caption: { en: 'The certificate and medal', ko: '이사장 표창장과 메달' } },
+      { src: '/projects/ai-health-guardian/share-group.jpg', alt: { en: 'Award recipients holding certificates and medals', ko: '표창장과 메달을 든 수상자 단체 사진' }, caption: { en: 'Award recipients', ko: '수상자 기념 촬영' }, focus: 'center 40%' },
+      { src: '/projects/ai-health-guardian/share-exhibit.jpg', alt: { en: 'Attendees listening at the exhibition, with the AI health information banner on the left', ko: '전시 설명을 듣는 참석자들, 왼쪽에 AI 건강정보 확인 서비스 배너' }, caption: { en: 'Exhibition walk-through', ko: '활동 사례 전시 설명' }, focus: 'center 70%' },
+      { src: '/projects/ai-health-guardian/share-talk.jpg', alt: { en: 'A team presenting its results to the other teams', ko: '활동 결과를 발표하는 현장' }, caption: { en: 'Results presentations', ko: '활동 결과 발표' } },
     ],
   },
   serviceHeading: { en: 'The service: AI Health Guardian', ko: '만들어진 서비스: AI 건강지킴이' } as Text,

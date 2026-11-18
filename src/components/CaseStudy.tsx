@@ -53,6 +53,12 @@ export function CaseStudy({ lang }: { lang: Lang }) {
           </section>
 
           <section>
+            <h2>{caseStudy.sharing.heading[lang]}</h2>
+            <p>{caseStudy.sharing.note[lang]} <a className="text-link" href={caseStudy.sharing.source.href} target="_blank" rel="noopener noreferrer">{caseStudy.sharing.source.label[lang]}</a></p>
+            <FigureGrid figures={caseStudy.sharing.figures} columns={2} lang={lang} zoom aspect="4 / 3" />
+          </section>
+
+          <section>
             <h2>{caseStudy.submission.heading[lang]}</h2>
             <p>{caseStudy.submission.note[lang]}</p>
             <FigureGrid figures={caseStudy.submission.figures} columns={3} lang={lang} zoom />
